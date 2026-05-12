@@ -358,6 +358,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
 // ─── Сцена ───────────────────────────────────────────────
 const canvas = document.getElementById('canvas3d');
@@ -402,7 +403,10 @@ resize();
 window.addEventListener('resize', resize);
 
 // ─── Загрузка модели ─────────────────────────────────────
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath('https://unpkg.com/three@0.160.0/examples/jsm/libs/draco/');
 const loader = new GLTFLoader();
+loader.setDRACOLoader(dracoLoader);
 let toothMeshes = {};   // { '11': mesh, '12': mesh, ... }
 let modelRoot;
 
