@@ -6,261 +6,46 @@
   <title>Калькулятор стоимости — Ольга</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: #0a0a0f;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-    }
-
-    .header {
-      text-align: center;
-      padding: 40px 20px 20px;
-    }
-
-    .header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #c8a96e, #e8d5a3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .header p {
-      color: #888;
-      margin-top: 8px;
-      font-size: 1rem;
-    }
-
-    .type-select {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      padding: 20px;
-      flex-wrap: wrap;
-    }
-
-    .type-btn {
-      padding: 14px 28px;
-      border-radius: 12px;
-      border: 2px solid #333;
-      background: #111;
-      color: #aaa;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .type-btn:hover {
-      border-color: #c8a96e;
-      color: #c8a96e;
-    }
-
-    .type-btn.active {
-      border-color: #c8a96e;
-      background: rgba(200,169,110,0.15);
-      color: #c8a96e;
-      font-weight: 600;
-    }
-
-    .main {
-      display: flex;
-      gap: 24px;
-      padding: 0 24px 40px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .viewer-wrap {
-      flex: 1;
-      min-height: 500px;
-      background: #0d0d14;
-      border-radius: 20px;
-      border: 1px solid #222;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #canvas3d {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .viewer-hint {
-      position: absolute;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.6);
-      color: #888;
-      font-size: 0.75rem;
-      padding: 6px 14px;
-      border-radius: 20px;
-      pointer-events: none;
-    }
-
-    .panel {
-      width: 340px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .panel-block {
-      background: #111;
-      border: 1px solid #222;
-      border-radius: 16px;
-      padding: 20px;
-    }
-
-    .panel-block h3 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #666;
-      margin-bottom: 14px;
-    }
-
-    .teeth-grid {
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-
-    .teeth-row-label {
-      font-size: 0.7rem;
-      color: #555;
-      margin-bottom: 4px;
-    }
-
-    .tooth-btn {
-      aspect-ratio: 1;
-      border-radius: 8px;
-      border: 1px solid #333;
-      background: #1a1a1a;
-      color: #888;
-      font-size: 0.65rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .tooth-btn:hover {
-      border-color: #c8a96e;
-      color: #c8a96e;
-    }
-
-    .tooth-btn.selected {
-      background: rgba(220, 60, 60, 0.3);
-      border-color: #dc3c3c;
-      color: #ff6b6b;
-    }
-
-    .mod-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .mod-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid #222;
-      background: #0d0d0d;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
+    body { background: #0a0a0f; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    .header { text-align: center; padding: 40px 20px 20px; }
+    .header h1 { font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #c8a96e, #e8d5a3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .header p { color: #888; margin-top: 8px; font-size: 1rem; }
+    .type-select { display: flex; justify-content: center; gap: 16px; padding: 20px; flex-wrap: wrap; }
+    .type-btn { padding: 14px 28px; border-radius: 12px; border: 2px solid #333; background: #111; color: #aaa; font-size: 1rem; cursor: pointer; transition: all 0.3s; }
+    .type-btn:hover { border-color: #c8a96e; color: #c8a96e; }
+    .type-btn.active { border-color: #c8a96e; background: rgba(200,169,110,0.15); color: #c8a96e; font-weight: 600; }
+    .main { display: flex; gap: 24px; padding: 0 24px 40px; max-width: 1400px; margin: 0 auto; }
+    .viewer-wrap { flex: 1; min-height: 500px; background: #0d0d14; border-radius: 20px; border: 1px solid #222; position: relative; overflow: hidden; }
+    #canvas3d { width: 100%; height: 100%; display: block; }
+    .viewer-hint { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); color: #888; font-size: 0.75rem; padding: 6px 14px; border-radius: 20px; pointer-events: none; }
+    .panel { width: 340px; display: flex; flex-direction: column; gap: 16px; }
+    .panel-block { background: #111; border: 1px solid #222; border-radius: 16px; padding: 20px; }
+    .panel-block h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 14px; }
+    .teeth-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; margin-bottom: 10px; }
+    .teeth-row-label { font-size: 0.7rem; color: #555; margin-bottom: 4px; }
+    .tooth-btn { aspect-ratio: 1; border-radius: 8px; border: 1px solid #333; background: #1a1a1a; color: #888; font-size: 0.65rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+    .tooth-btn:hover { border-color: #c8a96e; color: #c8a96e; }
+    .tooth-btn.selected { background: rgba(220,60,60,0.3); border-color: #dc3c3c; color: #ff6b6b; }
+    .reset-btn { width: 100%; margin-top: 12px; padding: 8px; border-radius: 8px; border: 1px solid #333; background: transparent; color: #666; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; }
+    .reset-btn:hover { border-color: #dc3c3c; color: #ff6b6b; }
+    .mod-list { display: flex; flex-direction: column; gap: 8px; }
+    .mod-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 10px; border: 1px solid #222; background: #0d0d0d; cursor: pointer; transition: all 0.2s; }
     .mod-item:hover { border-color: #444; }
-
-    .mod-item.selected {
-      border-color: #c8a96e;
-      background: rgba(200,169,110,0.1);
-    }
-
+    .mod-item.selected { border-color: #c8a96e; background: rgba(200,169,110,0.1); }
     .mod-name { font-size: 0.85rem; color: #ccc; }
     .mod-price { font-size: 0.8rem; color: #666; }
     .mod-item.selected .mod-price { color: #c8a96e; }
-
-    .total-block {
-      background: linear-gradient(135deg, rgba(200,169,110,0.15), rgba(200,169,110,0.05));
-      border: 1px solid rgba(200,169,110,0.3);
-      border-radius: 16px;
-      padding: 20px;
-    }
-
-    .total-label {
-      font-size: 0.8rem;
-      color: #888;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .total-price {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #c8a96e;
-      margin: 8px 0;
-    }
-
+    .total-block { background: linear-gradient(135deg, rgba(200,169,110,0.15), rgba(200,169,110,0.05)); border: 1px solid rgba(200,169,110,0.3); border-radius: 16px; padding: 20px; }
+    .total-label { font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+    .total-price { font-size: 2.2rem; font-weight: 700; color: #c8a96e; margin: 8px 0; }
     .total-note { font-size: 0.75rem; color: #555; }
-
-    .cta-btn {
-      display: block;
-      width: 100%;
-      margin-top: 16px;
-      padding: 14px;
-      background: linear-gradient(135deg, #c8a96e, #a8894e);
-      border: none;
-      border-radius: 12px;
-      color: #000;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      transition: opacity 0.2s;
-    }
-
+    .cta-btn { display: block; width: 100%; margin-top: 16px; padding: 14px; background: linear-gradient(135deg, #c8a96e, #a8894e); border: none; border-radius: 12px; color: #000; font-size: 1rem; font-weight: 700; cursor: pointer; text-decoration: none; text-align: center; transition: opacity 0.2s; }
     .cta-btn:hover { opacity: 0.85; }
-
-    .loading-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #0d0d14;
-      z-index: 10;
-    }
-
-    .spinner {
-      width: 48px;
-      height: 48px;
-      border: 3px solid #222;
-      border-top-color: #c8a96e;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin-bottom: 16px;
-    }
-
+    .loading-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0d0d14; z-index: 10; }
+    .spinner { width: 48px; height: 48px; border: 3px solid #222; border-top-color: #c8a96e; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 16px; }
     @keyframes spin { to { transform: rotate(360deg); } }
     .loading-text { color: #666; font-size: 0.9rem; }
-
-    @media (max-width: 900px) {
-      .main { flex-direction: column; }
-      .panel { width: 100%; }
-      .viewer-wrap { min-height: 350px; }
-    }
+    @media (max-width: 900px) { .main { flex-direction: column; } .panel { width: 100%; } .viewer-wrap { min-height: 350px; } }
   </style>
 </head>
 <body>
@@ -283,7 +68,7 @@
       <div class="spinner"></div>
       <div class="loading-text">Загружаем модель...</div>
     </div>
-    <div class="viewer-hint">Зажми и крути мышкой</div>
+    <div class="viewer-hint">Зажми и крути · Колёсико для зума</div>
   </div>
 
   <div class="panel">
@@ -293,6 +78,7 @@
       <div class="teeth-grid" id="upperTeeth"></div>
       <div class="teeth-row-label" style="margin-top:10px">Нижняя челюсть (48→41 | 31→38)</div>
       <div class="teeth-grid" id="lowerTeeth"></div>
+      <button class="reset-btn" onclick="resetTeeth()">✕ Сбросить выбор</button>
     </div>
 
     <div class="panel-block">
@@ -304,9 +90,7 @@
       <div class="total-label">Итоговая стоимость</div>
       <div class="total-price" id="totalPrice">0 ₽</div>
       <div class="total-note">* Точная стоимость — после консультации</div>
-      <a href="https://t.me/Kotelnikova_Implant" class="cta-btn" target="_blank">
-        Записаться к Ольге
-      </a>
+      <a href="https://t.me/Kotelnikova_Implant" class="cta-btn" target="_blank">Записаться к Ольге</a>
     </div>
   </div>
 </div>
@@ -366,56 +150,50 @@ dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5
 const loader = new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
 
+// 20 мешей → привязываем к 20 зубам
+// Верхняя: 18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28 (16 зубов)
+// Нижняя:  48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38 (16 зубов)
+// Но мешей только 20 — берём самые заметные
+const TOOTH_MAP = [
+  '18','17','16','15','14','13','12','11',
+  '21','22','23','24','25','26','27','28',
+  '31','32','33','34'
+];
+
 let toothMeshes = {};
-let modelRoot;
 
 const normalMat   = new THREE.MeshStandardMaterial({ color: 0xf0e8d8, roughness: 0.5, metalness: 0.1 });
-const selectedMat = new THREE.MeshStandardMaterial({ color: 0xff3333, roughness: 0.4, metalness: 0.1, emissive: 0xaa0000, emissiveIntensity: 0.4 });
+const selectedMat = new THREE.MeshStandardMaterial({ color: 0xff3333, roughness: 0.4, metalness: 0.1, emissive: 0xcc0000, emissiveIntensity: 0.5 });
 const gumMat      = new THREE.MeshStandardMaterial({ color: 0xd07070, roughness: 0.7, metalness: 0.0 });
 
 loader.load('./teeth_compressed.glb', (gltf) => {
-  modelRoot = gltf.scene;
+  const modelRoot = gltf.scene;
 
-  // Центрируем модель
-  const box = new THREE.Box3().setFromObject(modelRoot);
+  const box    = new THREE.Box3().setFromObject(modelRoot);
   const center = box.getCenter(new THREE.Vector3());
-  const size = box.getSize(new THREE.Vector3());
+  const size   = box.getSize(new THREE.Vector3());
   modelRoot.position.sub(center);
 
-  // Подстраиваем камеру под размер модели
   const maxDim = Math.max(size.x, size.y, size.z);
-  camera.position.set(0, maxDim * 1.0, maxDim * 6.0);
+  camera.position.set(0, maxDim * 0.3, maxDim * 2.2);
   controls.target.set(0, 0, 0);
   controls.minDistance = maxDim * 0.1;
   controls.maxDistance = maxDim * 20;
   controls.update();
 
-  // Раскрашиваем меши
-  let toothIndex = 0;
-  const toothNumbers = [
-    18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28,
-    48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38
-  ];
-
+  let idx = 0;
   modelRoot.traverse((child) => {
-    if (child.isMesh) { console.log('MESH ' + toothIndex + ':', child.name);
-      const name = child.name.toLowerCase();
-      if (name.includes('gum') || name.includes('tongue') || name.includes('tissue')) {
-        child.material = gumMat.clone();
-      } else {
-        child.material = normalMat.clone();
-        if (toothIndex < toothNumbers.length) {
-          const num = String(toothNumbers[toothIndex]);
-          toothMeshes[num] = child;
-          child.userData.toothNum = num;
-          toothIndex++;
-        }
-      }
+    if (!child.isMesh) return;
+    if (idx < TOOTH_MAP.length) {
+      child.material = normalMat.clone();
+      toothMeshes[TOOTH_MAP[idx]] = child;
+    } else {
+      child.material = gumMat.clone();
     }
+    idx++;
   });
 
   scene.add(modelRoot);
-  console.log('TOTAL MESHES:', Object.keys(toothMeshes).length);
   document.getElementById('loadingOverlay').style.display = 'none';
 
 }, undefined, (err) => {
@@ -437,11 +215,7 @@ window.highlightTeeth = function(selected) {
 </script>
 
 <script>
-const PRICES = {
-  implant: 35000,
-  all4:    180000,
-  all6:    230000,
-};
+const PRICES = { implant: 35000, all4: 180000, all6: 230000 };
 
 const MODS = [
   { id: 'sinus', name: 'Синус-лифтинг',     price: 25000 },
@@ -487,50 +261,37 @@ buildMods();
 function toggleTooth(num, btn) {
   if (currentType !== 'implant') return;
   const idx = selectedTeeth.indexOf(num);
-  if (idx === -1) {
-    selectedTeeth.push(num);
-    btn.classList.add('selected');
-  } else {
-    selectedTeeth.splice(idx, 1);
-    btn.classList.remove('selected');
-  }
+  if (idx === -1) { selectedTeeth.push(num); btn.classList.add('selected'); }
+  else { selectedTeeth.splice(idx, 1); btn.classList.remove('selected'); }
   if (window.highlightTeeth) window.highlightTeeth(selectedTeeth);
   calcTotal();
 }
 
 function toggleMod(id, el) {
-  if (selectedMods.has(id)) {
-    selectedMods.delete(id);
-    el.classList.remove('selected');
-  } else {
-    selectedMods.add(id);
-    el.classList.add('selected');
-  }
+  if (selectedMods.has(id)) { selectedMods.delete(id); el.classList.remove('selected'); }
+  else { selectedMods.add(id); el.classList.add('selected'); }
   calcTotal();
 }
+
+window.resetTeeth = function() {
+  selectedTeeth = [];
+  document.querySelectorAll('.tooth-btn').forEach(b => b.classList.remove('selected'));
+  if (window.highlightTeeth) window.highlightTeeth([]);
+  calcTotal();
+};
 
 window.setType = function(type, btn) {
   currentType = type;
   document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  const teethBlock = document.getElementById('teethBlock');
-  teethBlock.style.display = type === 'implant' ? 'block' : 'none';
-  if (type !== 'implant') {
-    selectedTeeth = [];
-    document.querySelectorAll('.tooth-btn').forEach(b => b.classList.remove('selected'));
-    if (window.highlightTeeth) window.highlightTeeth([]);
-  }
+  document.getElementById('teethBlock').style.display = type === 'implant' ? 'block' : 'none';
+  if (type !== 'implant') { selectedTeeth = []; document.querySelectorAll('.tooth-btn').forEach(b => b.classList.remove('selected')); if (window.highlightTeeth) window.highlightTeeth([]); }
   calcTotal();
 };
 
 function calcTotal() {
-  let total = currentType === 'implant'
-    ? PRICES.implant * Math.max(selectedTeeth.length, 1)
-    : PRICES[currentType];
-  selectedMods.forEach(id => {
-    const mod = MODS.find(m => m.id === id);
-    if (mod) total += mod.price;
-  });
+  let total = currentType === 'implant' ? PRICES.implant * Math.max(selectedTeeth.length, 1) : PRICES[currentType];
+  selectedMods.forEach(id => { const mod = MODS.find(m => m.id === id); if (mod) total += mod.price; });
   document.getElementById('totalPrice').textContent = total.toLocaleString('ru') + ' ₽';
 }
 
