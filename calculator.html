@@ -410,7 +410,7 @@ const normalMat  = new THREE.MeshStandardMaterial({ color: 0xf0e8d8, roughness: 
 const selectedMat = new THREE.MeshStandardMaterial({ color: 0xff3333, roughness: 0.4, metalness: 0.1, emissive: 0xaa0000, emissiveIntensity: 0.4 });
 const gumMat     = new THREE.MeshStandardMaterial({ color: 0xd07070, roughness: 0.7, metalness: 0.0 });
 
-loader.load('./highly_detailed_human_teeth.glb', (gltf) => {
+loader.load('./teeth_compressed.glb', (gltf) => {
   modelRoot = gltf.scene;
 
   // Центрируем модель
