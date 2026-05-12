@@ -384,10 +384,10 @@ loader.load('./teeth_compressed.glb', (gltf) => {
 
   // Подстраиваем камеру под размер модели
   const maxDim = Math.max(size.x, size.y, size.z);
-  camera.position.set(0, maxDim * 0.3, maxDim * 2.2);
+  camera.position.set(0, maxDim * 1.0, maxDim * 6.0);
   controls.target.set(0, 0, 0);
-  controls.minDistance = maxDim * 0.8;
-  controls.maxDistance = maxDim * 5;
+  controls.minDistance = maxDim * 0.1;
+  controls.maxDistance = maxDim * 20;
   controls.update();
 
   // Раскрашиваем меши
