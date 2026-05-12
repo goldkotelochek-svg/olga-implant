@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Калькулятор стоимости — Ольга</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0f;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #c8a96e, #e8d5a3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header p {
+      color: #888;
+      margin-top: 8px;
+      font-size: 1rem;
+    }
+
+    /* Выбор типа */
+    .type-select {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .type-btn {
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: 2px solid #333;
+      background: #111;
+      color: #aaa;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .type-btn:hover {
+      border-color: #c8a96e;
+      color: #c8a96e;
+    }
+
+    .type-btn.active {
+      border-color: #c8a96e;
+      background: rgba(200,169,110,0.15);
+      color: #c8a96e;
+      font-weight: 600;
+    }
+
+    /* Основной контейнер */
+    .main {
+      display: flex;
+      gap: 24px;
+      padding: 0 24px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* 3D вьювер */
+    .viewer-wrap {
+      flex: 1;
+      min-height: 500px;
+      background: #0d0d14;
+      border-radius: 20px;
+      border: 1px solid #222;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #canvas3d {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .viewer-hint {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.6);
+      color: #888;
+      font-size: 0.75rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      pointer-events: none;
+    }
+
+    /* Панель справа */
+    .panel {
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .panel-block {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .panel-block h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #666;
+      margin-bottom: 14px;
+    }
+
+    /* Зубы */
+    .teeth-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .teeth-row-label {
+      font-size: 0.7rem;
+      color: #555;
+      margin-bottom: 4px;
+    }
+
+    .tooth-btn {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background: #1a1a1a;
+      color: #888;
+      font-size: 0.65rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tooth-btn:hover {
+      border-color: #c8a96e;
+      color: #c8a96e;
+    }
+
+    .tooth-btn.selected {
+      background: rgba(220, 60, 60, 0.3);
+      border-color: #dc3c3c;
+      color: #ff6b6b;
+    }
+
+    /* Модификаторы */
+    .mod-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mod-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #222;
+      background: #0d0d0d;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .mod-item:hover {
+      border-color: #444;
+    }
+
+    .mod-item.selected {
+      border-color: #c8a96e;
+      background: rgba(200,169,110,0.1);
+    }
+
+    .mod-name {
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+
+    .mod-price {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .mod-item.selected .mod-price {
+      color: #c8a96e;
+    }
+
+    /* Итог */
+    .total-block {
+      background: linear-gradient(135deg, rgba(200,169,110,0.15), rgba(200,169,110,0.05));
+      border: 1px solid rgba(200,169,110,0.3);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .total-label {
+      font-size: 0.8rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .total-price {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #c8a96e;
+      margin: 8px 0;
+    }
+
+    .total-note {
+      font-size: 0.75rem;
+      color: #555;
+    }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px;
+      background: linear-gradient(135deg, #c8a96e, #a8894e);
+      border: none;
+      border-radius: 12px;
+      color: #000;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: opacity 0.2s;
+    }
+
+    .cta-btn:hover { opacity: 0.85; }
+
+    .loading-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #0d0d14;
+      z-index: 10;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid #222;
+      border-top-color: #c8a96e;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-text {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .main { flex-direction: column; }
+      .panel { width: 100%; }
+      .viewer-wrap { min-height: 350px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Посчитай стоимость сам</h1>
+  <p>Выбери тип лечения, зубы и дополнительные услуги</p>
+</div>
+
+<!-- Тип лечения -->
+<div class="type-select">
+  <button class="type-btn active" onclick="setType('implant', this)">1 имплантат</button>
+  <button class="type-btn" onclick="setType('all4', this)">All-on-4</button>
+  <button class="type-btn" onclick="setType('all6', this)">All-on-6</button>
+</div>
+
+<div class="main">
+  <!-- 3D вьювер -->
+  <div class="viewer-wrap" id="viewerWrap">
+    <canvas id="canvas3d"></canvas>
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="spinner"></div>
+      <div class="loading-text">Загружаем модель...</div>
+    </div>
+    <div class="viewer-hint">Зажми и крути мышкой</div>
+  </div>
+
+  <!-- Панель -->
+  <div class="panel">
+
+    <!-- Выбор зубов (только для одиночного) -->
+    <div class="panel-block" id="teethBlock">
+      <h3>Выберите зуб</h3>
+      <div class="teeth-row-label">Верхняя челюсть (18→11 | 21→28)</div>
+      <div class="teeth-grid" id="upperTeeth"></div>
+      <div class="teeth-row-label" style="margin-top:10px">Нижняя челюсть (48→41 | 31→38)</div>
+      <div class="teeth-grid" id="lowerTeeth"></div>
+    </div>
+
+    <!-- Модификаторы -->
+    <div class="panel-block">
+      <h3>Дополнительно</h3>
+      <div class="mod-list" id="modList"></div>
+    </div>
+
+    <!-- Итог -->
+    <div class="total-block">
+      <div class="total-label">Итоговая стоимость</div>
+      <div class="total-price" id="totalPrice">0 ₽</div>
+      <div class="total-note">* Точная стоимость — после консультации</div>
+      <a href="https://t.me/Kotelnikova_Implant" class="cta-btn" target="_blank">
+        Записаться к Ольге
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+// ─── Сцена ───────────────────────────────────────────────
+const canvas = document.getElementById('canvas3d');
+const wrap   = document.getElementById('viewerWrap');
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const scene  = new THREE.Scene();
+scene.background = new THREE.Color(0x0d0d14);
+
+const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
+camera.position.set(0, 0, 0.35);
+
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.minDistance = 0.15;
+controls.maxDistance = 0.8;
+
+// Освещение
+const ambient = new THREE.AmbientLight(0xffffff, 1.2);
+scene.add(ambient);
+const dir1 = new THREE.DirectionalLight(0xffeedd, 2);
+dir1.position.set(1, 2, 2);
+scene.add(dir1);
+const dir2 = new THREE.DirectionalLight(0xaabbff, 1);
+dir2.position.set(-2, -1, -1);
+scene.add(dir2);
+
+// ─── Resize ──────────────────────────────────────────────
+function resize() {
+  const w = wrap.clientWidth;
+  const h = wrap.clientHeight;
+  renderer.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+resize();
+window.addEventListener('resize', resize);
+
+// ─── Загрузка модели ─────────────────────────────────────
+const loader = new GLTFLoader();
+let toothMeshes = {};   // { '11': mesh, '12': mesh, ... }
+let modelRoot;
+
+const normalMat  = new THREE.MeshStandardMaterial({ color: 0xf0e8d8, roughness: 0.5, metalness: 0.1 });
+const selectedMat = new THREE.MeshStandardMaterial({ color: 0xff3333, roughness: 0.4, metalness: 0.1, emissive: 0xaa0000, emissiveIntensity: 0.4 });
+const gumMat     = new THREE.MeshStandardMaterial({ color: 0xd07070, roughness: 0.7, metalness: 0.0 });
+
+loader.load('./highly_detailed_human_teeth.glb', (gltf) => {
+  modelRoot = gltf.scene;
+
+  // Центрируем модель
+  const box = new THREE.Box3().setFromObject(modelRoot);
+  const center = box.getCenter(new THREE.Vector3());
+  modelRoot.position.sub(center);
+
+  // Раскрашиваем меши
+  let toothIndex = 0;
+  const toothNumbers = [
+    18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28,
+    48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38
+  ];
+
+  modelRoot.traverse((child) => {
+    if (child.isMesh) {
+      const name = child.name.toLowerCase();
+      if (name.includes('gum') || name.includes('tongue') || name.includes('tissue')) {
+        child.material = gumMat.clone();
+      } else {
+        child.material = normalMat.clone();
+        if (toothIndex < toothNumbers.length) {
+          const num = String(toothNumbers[toothIndex]);
+          toothMeshes[num] = child;
+          child.userData.toothNum = num;
+          toothIndex++;
+        }
+      }
+    }
+  });
+
+  scene.add(modelRoot);
+  document.getElementById('loadingOverlay').style.display = 'none';
+}, undefined, (err) => {
+  console.error(err);
+  document.querySelector('.loading-text').textContent = 'Ошибка загрузки модели';
+});
+
+// ─── Раскраска выбранных зубов ───────────────────────────
+window.highlightTeeth = function(selected) {
+  Object.entries(toothMeshes).forEach(([num, mesh]) => {
+    mesh.material = selected.includes(num) ? selectedMat.clone() : normalMat.clone();
+  });
+};
+
+// ─── Анимация ────────────────────────────────────────────
+(function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+})();
+</script>
+
+<script>
+// ─── Логика калькулятора ──────────────────────────────────
+
+const PRICES = {
+  implant: 35000,
+  all4:    180000,
+  all6:    230000,
+};
+
+const MODS = [
+  { id: 'sinus',  name: 'Синус-лифтинг',      price: 25000 },
+  { id: 'bone',   name: 'Костная пластика',    price: 20000 },
+  { id: 'crown',  name: 'Коронка (керамика)',  price: 18000 },
+  { id: 'anest',  name: 'Седация',             price: 8000  },
+  { id: 'xray',   name: 'КТ-снимок',           price: 3500  },
+];
+
+let currentType   = 'implant';
+let selectedTeeth = [];
+let selectedMods  = new Set();
+
+// Верхняя: 18→11, 21→28
+const upperLeft  = [18,17,16,15,14,13,12,11];
+const upperRight = [21,22,23,24,25,26,27,28];
+// Нижняя: 48→41, 31→38
+const lowerLeft  = [48,47,46,45,44,43,42,41];
+const lowerRight = [31,32,33,34,35,36,37,38];
+
+function buildTeethGrid(containerId, numbers) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  numbers.forEach(n => {
+    const btn = document.createElement('button');
+    btn.className = 'tooth-btn';
+    btn.textContent = n;
+    btn.dataset.tooth = n;
+    btn.onclick = () => toggleTooth(String(n), btn);
+    el.appendChild(btn);
+  });
+}
+
+buildTeethGrid('upperTeeth', [...upperLeft, ...upperRight]);
+buildTeethGrid('lowerTeeth', [...lowerLeft, ...lowerRight]);
+
+function buildMods() {
+  const el = document.getElementById('modList');
+  el.innerHTML = '';
+  MODS.forEach(m => {
+    const div = document.createElement('div');
+    div.className = 'mod-item';
+    div.innerHTML = `<span class="mod-name">${m.name}</span><span class="mod-price">+${m.price.toLocaleString('ru')} ₽</span>`;
+    div.onclick = () => toggleMod(m.id, div);
+    el.appendChild(div);
+  });
+}
+buildMods();
+
+function toggleTooth(num, btn) {
+  if (currentType !== 'implant') return;
+  const idx = selectedTeeth.indexOf(num);
+  if (idx === -1) {
+    selectedTeeth.push(num);
+    btn.classList.add('selected');
+  } else {
+    selectedTeeth.splice(idx, 1);
+    btn.classList.remove('selected');
+  }
+  if (window.highlightTeeth) window.highlightTeeth(selectedTeeth);
+  calcTotal();
+}
+
+function toggleMod(id, el) {
+  if (selectedMods.has(id)) {
+    selectedMods.delete(id);
+    el.classList.remove('selected');
+  } else {
+    selectedMods.add(id);
+    el.classList.add('selected');
+  }
+  calcTotal();
+}
+
+window.setType = function(type, btn) {
+  currentType = type;
+  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const teethBlock = document.getElementById('teethBlock');
+  teethBlock.style.display = type === 'implant' ? 'block' : 'none';
+
+  if (type !== 'implant') {
+    selectedTeeth = [];
+    document.querySelectorAll('.tooth-btn').forEach(b => b.classList.remove('selected'));
+    if (window.highlightTeeth) window.highlightTeeth([]);
+  }
+  calcTotal();
+};
+
+function calcTotal() {
+  let total = 0;
+
+  if (currentType === 'implant') {
+    total = PRICES.implant * Math.max(selectedTeeth.length, 1);
+  } else {
+    total = PRICES[currentType];
+  }
+
+  selectedMods.forEach(id => {
+    const mod = MODS.find(m => m.id === id);
+    if (mod) total += mod.price;
+  });
+
+  document.getElementById('totalPrice').textContent = total.toLocaleString('ru') + ' ₽';
+}
+
+calcTotal();
+</script>
+
+</body>
+</html>
