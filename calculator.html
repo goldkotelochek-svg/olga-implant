@@ -33,7 +33,6 @@
       font-size: 1rem;
     }
 
-    /* Выбор типа */
     .type-select {
       display: flex;
       justify-content: center;
@@ -65,7 +64,6 @@
       font-weight: 600;
     }
 
-    /* Основной контейнер */
     .main {
       display: flex;
       gap: 24px;
@@ -74,7 +72,6 @@
       margin: 0 auto;
     }
 
-    /* 3D вьювер */
     .viewer-wrap {
       flex: 1;
       min-height: 500px;
@@ -104,7 +101,6 @@
       pointer-events: none;
     }
 
-    /* Панель справа */
     .panel {
       width: 340px;
       display: flex;
@@ -127,7 +123,6 @@
       margin-bottom: 14px;
     }
 
-    /* Зубы */
     .teeth-grid {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
@@ -166,7 +161,6 @@
       color: #ff6b6b;
     }
 
-    /* Модификаторы */
     .mod-list {
       display: flex;
       flex-direction: column;
@@ -185,30 +179,17 @@
       transition: all 0.2s;
     }
 
-    .mod-item:hover {
-      border-color: #444;
-    }
+    .mod-item:hover { border-color: #444; }
 
     .mod-item.selected {
       border-color: #c8a96e;
       background: rgba(200,169,110,0.1);
     }
 
-    .mod-name {
-      font-size: 0.85rem;
-      color: #ccc;
-    }
+    .mod-name { font-size: 0.85rem; color: #ccc; }
+    .mod-price { font-size: 0.8rem; color: #666; }
+    .mod-item.selected .mod-price { color: #c8a96e; }
 
-    .mod-price {
-      font-size: 0.8rem;
-      color: #666;
-    }
-
-    .mod-item.selected .mod-price {
-      color: #c8a96e;
-    }
-
-    /* Итог */
     .total-block {
       background: linear-gradient(135deg, rgba(200,169,110,0.15), rgba(200,169,110,0.05));
       border: 1px solid rgba(200,169,110,0.3);
@@ -230,10 +211,7 @@
       margin: 8px 0;
     }
 
-    .total-note {
-      font-size: 0.75rem;
-      color: #555;
-    }
+    .total-note { font-size: 0.75rem; color: #555; }
 
     .cta-btn {
       display: block;
@@ -276,11 +254,7 @@
     }
 
     @keyframes spin { to { transform: rotate(360deg); } }
-
-    .loading-text {
-      color: #666;
-      font-size: 0.9rem;
-    }
+    .loading-text { color: #666; font-size: 0.9rem; }
 
     @media (max-width: 900px) {
       .main { flex-direction: column; }
@@ -296,7 +270,6 @@
   <p>Выбери тип лечения, зубы и дополнительные услуги</p>
 </div>
 
-<!-- Тип лечения -->
 <div class="type-select">
   <button class="type-btn active" onclick="setType('implant', this)">1 имплантат</button>
   <button class="type-btn" onclick="setType('all4', this)">All-on-4</button>
@@ -304,7 +277,6 @@
 </div>
 
 <div class="main">
-  <!-- 3D вьювер -->
   <div class="viewer-wrap" id="viewerWrap">
     <canvas id="canvas3d"></canvas>
     <div class="loading-overlay" id="loadingOverlay">
@@ -314,10 +286,7 @@
     <div class="viewer-hint">Зажми и крути мышкой</div>
   </div>
 
-  <!-- Панель -->
   <div class="panel">
-
-    <!-- Выбор зубов (только для одиночного) -->
     <div class="panel-block" id="teethBlock">
       <h3>Выберите зуб</h3>
       <div class="teeth-row-label">Верхняя челюсть (18→11 | 21→28)</div>
@@ -326,13 +295,11 @@
       <div class="teeth-grid" id="lowerTeeth"></div>
     </div>
 
-    <!-- Модификаторы -->
     <div class="panel-block">
       <h3>Дополнительно</h3>
       <div class="mod-list" id="modList"></div>
     </div>
 
-    <!-- Итог -->
     <div class="total-block">
       <div class="total-label">Итоговая стоимость</div>
       <div class="total-price" id="totalPrice">0 ₽</div>
@@ -341,7 +308,6 @@
         Записаться к Ольге
       </a>
     </div>
-
   </div>
 </div>
 
@@ -360,7 +326,6 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
-// ─── Сцена ───────────────────────────────────────────────
 const canvas = document.getElementById('canvas3d');
 const wrap   = document.getElementById('viewerWrap');
 
@@ -368,21 +333,15 @@ const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-const scene  = new THREE.Scene();
+const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x0d0d14);
 
-const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
-camera.position.set(0, 0.08, 0.45);
-
+const camera = new THREE.PerspectiveCamera(45, 1, 0.001, 1000);
 
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.dampingFactor = 0.08;
-controls.minDistance = 0.25;
-controls.maxDistance = 0.9;
-controls.target.set(0, -0.02, 0);
 
-// Освещение
 const ambient = new THREE.AmbientLight(0xffffff, 1.2);
 scene.add(ambient);
 const dir1 = new THREE.DirectionalLight(0xffeedd, 2);
@@ -392,7 +351,6 @@ const dir2 = new THREE.DirectionalLight(0xaabbff, 1);
 dir2.position.set(-2, -1, -1);
 scene.add(dir2);
 
-// ─── Resize ──────────────────────────────────────────────
 function resize() {
   const w = wrap.clientWidth;
   const h = wrap.clientHeight;
@@ -403,17 +361,17 @@ function resize() {
 resize();
 window.addEventListener('resize', resize);
 
-// ─── Загрузка модели ─────────────────────────────────────
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
 const loader = new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
-let toothMeshes = {};   // { '11': mesh, '12': mesh, ... }
+
+let toothMeshes = {};
 let modelRoot;
 
-const normalMat  = new THREE.MeshStandardMaterial({ color: 0xf0e8d8, roughness: 0.5, metalness: 0.1 });
+const normalMat   = new THREE.MeshStandardMaterial({ color: 0xf0e8d8, roughness: 0.5, metalness: 0.1 });
 const selectedMat = new THREE.MeshStandardMaterial({ color: 0xff3333, roughness: 0.4, metalness: 0.1, emissive: 0xaa0000, emissiveIntensity: 0.4 });
-const gumMat     = new THREE.MeshStandardMaterial({ color: 0xd07070, roughness: 0.7, metalness: 0.0 });
+const gumMat      = new THREE.MeshStandardMaterial({ color: 0xd07070, roughness: 0.7, metalness: 0.0 });
 
 loader.load('./teeth_compressed.glb', (gltf) => {
   modelRoot = gltf.scene;
@@ -421,7 +379,16 @@ loader.load('./teeth_compressed.glb', (gltf) => {
   // Центрируем модель
   const box = new THREE.Box3().setFromObject(modelRoot);
   const center = box.getCenter(new THREE.Vector3());
+  const size = box.getSize(new THREE.Vector3());
   modelRoot.position.sub(center);
+
+  // Подстраиваем камеру под размер модели
+  const maxDim = Math.max(size.x, size.y, size.z);
+  camera.position.set(0, maxDim * 0.3, maxDim * 2.2);
+  controls.target.set(0, 0, 0);
+  controls.minDistance = maxDim * 0.8;
+  controls.maxDistance = maxDim * 5;
+  controls.update();
 
   // Раскрашиваем меши
   let toothIndex = 0;
@@ -449,19 +416,18 @@ loader.load('./teeth_compressed.glb', (gltf) => {
 
   scene.add(modelRoot);
   document.getElementById('loadingOverlay').style.display = 'none';
+
 }, undefined, (err) => {
   console.error(err);
   document.querySelector('.loading-text').textContent = 'Ошибка загрузки модели';
 });
 
-// ─── Раскраска выбранных зубов ───────────────────────────
 window.highlightTeeth = function(selected) {
   Object.entries(toothMeshes).forEach(([num, mesh]) => {
     mesh.material = selected.includes(num) ? selectedMat.clone() : normalMat.clone();
   });
 };
 
-// ─── Анимация ────────────────────────────────────────────
 (function animate() {
   requestAnimationFrame(animate);
   controls.update();
@@ -470,8 +436,6 @@ window.highlightTeeth = function(selected) {
 </script>
 
 <script>
-// ─── Логика калькулятора ──────────────────────────────────
-
 const PRICES = {
   implant: 35000,
   all4:    180000,
@@ -479,23 +443,16 @@ const PRICES = {
 };
 
 const MODS = [
-  { id: 'sinus',  name: 'Синус-лифтинг',      price: 25000 },
-  { id: 'bone',   name: 'Костная пластика',    price: 20000 },
-  { id: 'crown',  name: 'Коронка (керамика)',  price: 18000 },
-  { id: 'anest',  name: 'Седация',             price: 8000  },
-  { id: 'xray',   name: 'КТ-снимок',           price: 3500  },
+  { id: 'sinus', name: 'Синус-лифтинг',     price: 25000 },
+  { id: 'bone',  name: 'Костная пластика',   price: 20000 },
+  { id: 'crown', name: 'Коронка (керамика)', price: 18000 },
+  { id: 'anest', name: 'Седация',            price: 8000  },
+  { id: 'xray',  name: 'КТ-снимок',          price: 3500  },
 ];
 
 let currentType   = 'implant';
 let selectedTeeth = [];
 let selectedMods  = new Set();
-
-// Верхняя: 18→11, 21→28
-const upperLeft  = [18,17,16,15,14,13,12,11];
-const upperRight = [21,22,23,24,25,26,27,28];
-// Нижняя: 48→41, 31→38
-const lowerLeft  = [48,47,46,45,44,43,42,41];
-const lowerRight = [31,32,33,34,35,36,37,38];
 
 function buildTeethGrid(containerId, numbers) {
   const el = document.getElementById(containerId);
@@ -510,8 +467,8 @@ function buildTeethGrid(containerId, numbers) {
   });
 }
 
-buildTeethGrid('upperTeeth', [...upperLeft, ...upperRight]);
-buildTeethGrid('lowerTeeth', [...lowerLeft, ...lowerRight]);
+buildTeethGrid('upperTeeth', [18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28]);
+buildTeethGrid('lowerTeeth', [48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38]);
 
 function buildMods() {
   const el = document.getElementById('modList');
@@ -555,10 +512,8 @@ window.setType = function(type, btn) {
   currentType = type;
   document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-
   const teethBlock = document.getElementById('teethBlock');
   teethBlock.style.display = type === 'implant' ? 'block' : 'none';
-
   if (type !== 'implant') {
     selectedTeeth = [];
     document.querySelectorAll('.tooth-btn').forEach(b => b.classList.remove('selected'));
@@ -568,19 +523,13 @@ window.setType = function(type, btn) {
 };
 
 function calcTotal() {
-  let total = 0;
-
-  if (currentType === 'implant') {
-    total = PRICES.implant * Math.max(selectedTeeth.length, 1);
-  } else {
-    total = PRICES[currentType];
-  }
-
+  let total = currentType === 'implant'
+    ? PRICES.implant * Math.max(selectedTeeth.length, 1)
+    : PRICES[currentType];
   selectedMods.forEach(id => {
     const mod = MODS.find(m => m.id === id);
     if (mod) total += mod.price;
   });
-
   document.getElementById('totalPrice').textContent = total.toLocaleString('ru') + ' ₽';
 }
 
