@@ -398,7 +398,7 @@ loader.load('./teeth_compressed.glb', (gltf) => {
   ];
 
   modelRoot.traverse((child) => {
-    if (child.isMesh) {
+    if (child.isMesh) { console.log('MESH:', child.name);
       const name = child.name.toLowerCase();
       if (name.includes('gum') || name.includes('tongue') || name.includes('tissue')) {
         child.material = gumMat.clone();
