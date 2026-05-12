@@ -147,14 +147,14 @@
     .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
 
     /* ─── PAIN POINTS ────────────────────────────────────── */
-    .pains { background: var(--darker); padding: 100px 60px; }
-    .pains-header { margin-bottom: 60px; }
+    .pains { background: var(--darker); }
+    .pains-header { padding: 60px 60px 40px; }
     .pains-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
     .pain-card { background: var(--card); padding: 40px 36px; display: flex; gap: 20px; align-items: flex-start; position: relative; overflow: hidden; transition: background 0.3s ease, transform 0.4s ease, box-shadow 0.4s ease; }
     .pain-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, rgba(201,169,110,0.5), transparent); transform: scaleX(0); transition: transform 0.4s ease; }
     .pain-card:hover { background: #161616; transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
     .pain-card:hover::before { transform: scaleX(1); }
-    .pain-card--cta { background: linear-gradient(135deg, #0f1a24 0%, #0a1520 100%); border: 1px solid rgba(34,158,217,0.15); flex-direction: column; gap: 16px; }
+    .pain-card--cta { background: linear-gradient(135deg, #0f1a24 0%, #0a1520 100%); border: 1px solid rgba(34,158,217,0.15); flex-direction: column; gap: 16px; grid-column: span 3; }
     .pain-card--cta:hover { background: linear-gradient(135deg, #122030 0%, #0d1c28 100%); border-color: rgba(34,158,217,0.35); box-shadow: 0 20px 60px rgba(34,158,217,0.1); }
     .pain-icon { font-size: 1.6rem; flex-shrink: 0; transition: transform 0.3s ease; line-height: 1; padding-top: 2px; }
     .pain-card:hover .pain-icon { transform: scale(1.15) rotate(5deg); }
@@ -174,6 +174,77 @@
     .pillar-card:hover .pillar-icon { transform: scale(1.2) rotate(5deg); }
     .pillar-title { font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 16px; }
     .pillar-text { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
+
+    /* ─── VALUE PROPOSITION ──────────────────────────────── */
+    .value-prop { background: var(--darker); padding: 100px 60px; position: relative; overflow: hidden; }
+    .value-prop::before {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .vp-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .vp-title-main { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; max-width: 600px; margin-bottom: 48px; }
+    .vp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .vp-card { background: var(--card); padding: 40px 36px; position: relative; overflow: hidden; transition: background 0.3s ease, transform 0.4s ease, box-shadow 0.4s ease; }
+    .vp-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); transform: scaleX(0); transition: transform 0.4s ease; }
+    .vp-card:hover { background: #161616; transform: translateY(-6px); box-shadow: 0 24px 64px rgba(0,0,0,0.5); }
+    .vp-card:hover::after { transform: scaleX(1); }
+    .vp-card--center { background: #0e0e0e; border-top: 2px solid var(--accent); }
+    .vp-card--center:hover { background: #141414; }
+    .vp-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .vp-icon { font-size: 1.8rem; transition: transform 0.3s ease; }
+    .vp-card:hover .vp-icon { transform: scale(1.15) rotate(5deg); }
+    .vp-badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); }
+    .vp-badge--gold { background: rgba(201,169,110,0.12); border-color: rgba(201,169,110,0.3); color: var(--accent); }
+    .vp-badge--green { background: rgba(80,200,120,0.08); border-color: rgba(80,200,120,0.25); color: #80d4a0; }
+    .vp-title { font-size: 1.2rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; margin-bottom: 12px; margin-top: 24px; }
+    .vp-text { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
+    .vp-brands { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+    .brand-chip { font-size: 0.78rem; font-weight: 600; padding: 5px 14px; border-radius: 100px; border: 1px solid var(--border); color: var(--muted); transition: all 0.3s ease; }
+    .brand--premium { background: rgba(201,169,110,0.08); border-color: rgba(201,169,110,0.25); color: var(--accent); }
+    .vp-stat-row { display: flex; align-items: center; gap: 20px; margin-bottom: 4px; }
+    .vp-stat-num { font-size: 2rem; font-weight: 700; color: var(--accent); letter-spacing: -0.03em; line-height: 1; }
+    .vp-stat-num span { font-size: 1.2rem; }
+    .vp-stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+    .vp-stat-divider { width: 1px; height: 36px; background: var(--border); flex-shrink: 0; }
+    .vp-breakdown { display: flex; flex-direction: column; gap: 10px; margin-bottom: 4px; }
+    .vp-line { display: flex; align-items: center; gap: 10px; }
+    .vp-line-label { font-size: 0.75rem; color: var(--muted); min-width: 150px; white-space: nowrap; }
+    .vp-line--crossed .vp-line-label { text-decoration: line-through; opacity: 0.4; }
+    .vp-line-bar { flex: 1; height: 4px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+    .vp-line-fill { display: block; height: 100%; width: 0; border-radius: 4px; transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1); }
+    .vp-fill--accent { background: var(--accent); }
+    .vp-fill--muted  { background: #555; }
+    .vp-fill--none   { background: transparent; }
+    .vp-line-zero { font-size: 0.75rem; color: rgba(255,80,80,0.5); min-width: 16px; }
+    .vp-card.visible .vp-line-fill { width: var(--w); }
+
+    /* ─── BEFORE / AFTER ─────────────────────────────────── */
+    .before-after { background: var(--dark); padding: 100px 60px; position: relative; overflow: hidden; }
+    .before-after::before {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(201,169,110,0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .ba-cases { display: flex; flex-direction: column; gap: 80px; }
+    .ba-case { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; position: relative; }
+    .ba-case-num { position: absolute; top: -28px; left: 0; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); opacity: 0.7; }
+    .ba-photo { position: relative; overflow: hidden; aspect-ratio: 4/3; background: var(--card); }
+    .ba-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); filter: grayscale(20%); }
+    .ba-photo:hover img { transform: scale(1.04); filter: grayscale(0%); }
+    .ba-photo-label { position: absolute; top: 16px; left: 16px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; backdrop-filter: blur(8px); }
+    .ba-photo-label--before { background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); }
+    .ba-photo-label--after { background: rgba(201,169,110,0.18); border: 1px solid rgba(201,169,110,0.35); color: var(--accent); }
+    .ba-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%); pointer-events: none; }
+    .ba-case-info { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; background: var(--card); border-top: 1px solid var(--border); margin-top: 2px; }
+    .ba-case-title { font-size: 0.95rem; font-weight: 600; color: #fff; }
+    .ba-case-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .ba-tag { font-size: 0.72rem; font-weight: 500; padding: 4px 12px; border-radius: 100px; border: 1px solid var(--border); color: var(--muted); }
+    .ba-tag--accent { background: rgba(201,169,110,0.08); border-color: rgba(201,169,110,0.25); color: var(--accent); }
 
     /* ─── QUOTE ──────────────────────────────────────────── */
     .quote-section { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -205,7 +276,7 @@
     .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
     .cred-card { background: var(--card); padding: 40px; transition: background 0.3s ease; }
     .cred-card:hover { background: #141414; }
-    .cred-card--wide { grid-column: 1 / -1; }
+    .cred-card--wide { grid-column : 1 / -1; }
     .cred-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
     .cred-card-icon { font-size: 1.4rem; }
     .cred-card-title { font-size: 1.1rem; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
@@ -220,113 +291,91 @@
     .cred-type { font-size: 0.78rem; color: var(--muted); }
     .cred-profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .cred-profile-item { position: relative; padding: 16px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); overflow: hidden; transition: border-color 0.3s ease, background 0.3s ease; }
-    .cred-profile-item:hover { border-color: rgba(201,169,110,0.3); background: rgba(201,169,110,0.04); }
-    .cred-profile-bar { position: absolute; bottom: 0; left: 0; height: 3px; width: var(--w); border-radius: 0 2px 0 0; transition: width 1s ease; }
-    .cred-profile--high .cred-profile-bar { background: var(--accent); }
-    .cred-profile--mid  .cred-profile-bar { background: #8b9bb5; }
-    .cred-profile--low  .cred-profile-bar { background: var(--border); }
-    .cred-profile-pct { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .cred-profile--high .cred-profile-pct { color: var(--accent); }
-    .cred-profile-name { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+    .cred-profile-item:hover { border-color: rgba(201,169,110,0.2); background: rgba(201,169,110,0.03); }
+    .cred-profile-num { font-size: 1.6rem; font-weight: 700; color: var(--accent); letter-spacing: -0.02em; line-height: 1; }
+    .cred-profile-num span { font-size: 1rem; }
+    .cred-profile-label { font-size: 0.78rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+    .cred-profile-bar { position: absolute; bottom: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); width: 0; transition: width 1s ease; }
+    .cred-card:hover .cred-profile-bar { width: 100%; }
 
-    /* ─── GALLERY ────────────────────────────────────────── */
-    .gallery { background: var(--darker); padding: 100px 60px; }
-    .gallery-filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
-    .gallery-filter-btn { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 8px 20px; border-radius: 100px; font-size: 0.85rem; font-weight: 500; cursor: none; transition: all 0.3s ease; font-family: 'Inter', sans-serif; }
-    .gallery-filter-btn:hover, .gallery-filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(201,169,110,0.05); }
-    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .gallery-item { position: relative; overflow: hidden; aspect-ratio: 4/3; background: var(--card); transition: transform 0.4s ease; }
-    .gallery-item:hover { transform: scale(1.02); z-index: 2; }
-    .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; border: 1px dashed rgba(201,169,110,0.2); transition: border-color 0.3s ease, background 0.3s ease; }
-    .gallery-placeholder:hover { border-color: rgba(201,169,110,0.4); background: rgba(201,169,110,0.03); }
-    .gallery-placeholder-icon { font-size: 2rem; opacity: 0.3; transition: opacity 0.3s ease, transform 0.3s ease; }
-    .gallery-item:hover .gallery-placeholder-icon { opacity: 0.6; transform: scale(1.1); }
-    .gallery-placeholder-text { font-size: 0.8rem; color: var(--muted); opacity: 0.5; letter-spacing: 0.05em; text-align: center; line-height: 1.6; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-    .gallery-item:hover img { transform: scale(1.05); }
-    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s ease; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; }
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-    .gallery-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-    .gallery-desc { font-size: 0.9rem; color: #fff; font-weight: 500; }
-    .gallery-badge { position: absolute; top: 16px; left: 16px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; }
-    .badge-before { background: rgba(255,80,80,0.2); color: #ff8080; border: 1px solid rgba(255,80,80,0.3); }
-    .badge-after  { background: rgba(80,200,120,0.2); color: #80d4a0; border: 1px solid rgba(80,200,120,0.3); }
-    .gallery-counter { display: flex; align-items: center; gap: 24px; margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--border); }
-    .gallery-counter-num { font-size: 2.5rem; font-weight: 700; color: var(--accent); }
-    .gallery-counter-label { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
-    .gallery-counter-divider { width: 1px; height: 48px; background: var(--border); }
-    .gallery-coming-soon { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,169,110,0.08); border: 1px solid rgba(201,169,110,0.2); color: var(--accent); font-size: 0.8rem; font-weight: 500; padding: 8px 18px; border-radius: 100px; margin-bottom: 32px; letter-spacing: 0.03em; }
-    .gallery-coming-soon::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: blinkDot 1.5s ease-in-out infinite; }
-    @keyframes blinkDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+    /* ─── PROCESS ────────────────────────────────────────── */
+    .process { background: var(--card); }
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+    .process-steps::before { content: ''; position: absolute; top: 32px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), var(--border), var(--border), transparent); }
+    .step { padding: 0 20px 40px; text-align: center; position: relative; transition: transform 0.3s ease; }
+    .step:hover { transform: translateY(-8px); }
+    .step-num { width: 64px; height: 64px; border-radius: 50%; background: var(--dark); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 0.9rem; font-weight: 600; color: var(--accent); position: relative; z-index: 1; transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; }
+    .step:hover .step-num { border-color: var(--accent); background: rgba(201,169,110,0.08); box-shadow: 0 0 0 4px rgba(201,169,110,0.1); }
+    .step-title { font-size: 0.95rem; font-weight: 600; color: #fff; margin-bottom: 10px; }
+    .step-text { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
 
-    /* ─── CTA SECTION ────────────────────────────────────── */
-    .cta-section { text-align: center; background: var(--dark); }
-    .cta-section .section-title { margin: 0 auto 16px; text-align: center; }
-    .cta-sub { color: var(--muted); font-size: 1rem; margin-bottom: 40px; }
-    .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-    .btn-tg { display: inline-flex; align-items: center; gap: 10px; background: var(--tg); color: #fff; font-weight: 600; font-size: 0.95rem; padding: 16px 32px; border-radius: 100px; text-decoration: none; transition: all 0.3s; position: relative; overflow: hidden; }
-    .btn-tg::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; background: rgba(255,255,255,0.15); border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.5s ease, height 0.5s ease; }
-    .btn-tg:hover::before { width: 300px; height: 300px; }
-    .btn-tg:hover { background: var(--tg-hover); transform: translateY(-3px); box-shadow: 0 16px 48px rgba(34,158,217,0.3); }
-    .btn-tg svg { width: 20px; height: 20px; flex-shrink: 0; }
-    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text); font-weight: 500; font-size: 0.95rem; padding: 16px 32px; border-radius: 100px; text-decoration: none; border: 1px solid var(--border); transition: all 0.3s; }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+    /* ─── CTA ────────────────────────────────────────────── */
+    .cta-section { background: var(--darker); text-align: center; }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    .cta-tag { display: inline-block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(201,169,110,0.3); padding: 6px 16px; border-radius: 100px; margin-bottom: 24px; }
+    .cta-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.02em; color: #fff; margin-bottom: 16px; }
+    .cta-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.7; margin-bottom: 40px; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--tg); color: #fff; font-weight: 600; font-size: 1.05rem; padding: 18px 40px; border-radius: 100px; text-decoration: none; transition: all 0.3s ease; position: relative; overflow: hidden; }
+    .cta-btn::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; background: rgba(255,255,255,0.15); border-radius: 50%; transform: translate(-50%,-50%); transition: width 0.5s, height 0.5s; }
+    .cta-btn:hover::before { width: 400px; height: 400px; }
+    .cta-btn:hover { background: var(--tg-hover); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(34,158,217,0.35); }
+    .cta-btn svg { width: 22px; height: 22px; }
+    .cta-note { margin-top: 20px; font-size: 0.82rem; color: var(--muted); }
 
     /* ─── FOOTER ─────────────────────────────────────────── */
-    footer { padding: 40px 60px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.85rem; }
+    footer { background: var(--dark); border-top: 1px solid var(--border); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-size: 1rem; font-weight: 600; color: var(--accent); }
+    .footer-text { font-size: 0.82rem; color: var(--muted); }
+    .footer-tg { display: flex; align-items: center; gap: 8px; color: var(--tg); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.3s; }
+    .footer-tg:hover { color: #fff; }
 
-    /* ─── SCROLL ANIMATIONS ──────────────────────────────── */
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    /* ─── SECTION SHARED ─────────────────────────────────── */
+    section { padding: 100px 60px; }
+    .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; max-width: 600px; margin-bottom: 48px; }
+
+    /* ─── REVEAL ─────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .reveal-left.visible { opacity: 1; transform: translateX(0); }
-    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .reveal-right.visible { opacity: 1; transform: translateX(0); }
-    .reveal-scale { opacity: 0; transform: scale(0.92); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .reveal-scale.visible { opacity: 1; transform: scale(1); }
     .stagger-1 { transition-delay: 0.1s; }
     .stagger-2 { transition-delay: 0.2s; }
     .stagger-3 { transition-delay: 0.3s; }
     .stagger-4 { transition-delay: 0.4s; }
     .stagger-5 { transition-delay: 0.5s; }
-    .stagger-6 { transition-delay: 0.6s; }
 
-    section { padding: 100px 60px; }
-    .section-tag { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-    .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; max-width: 600px; margin-bottom: 60px; }
+    @keyframes fadeUp   { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeDown { to { opacity: 1; transform: translateY(0); } }
-
-    /* ─── MEDIA ──────────────────────────────────────────── */
+    /* ─── MOBILE ─────────────────────────────────────────── */
     @media (max-width: 1024px) {
-      .pains-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .cred-grid { grid-template-columns: 1fr; }
-      .cred-card--wide { grid-column: 1; }
+      .pains-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+      .cred-profile-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
-      * { cursor: auto; }
-      .cursor, .cursor-follower { display: none; }
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
-      .hero { padding: 100px 24px 60px; }
       section { padding: 70px 24px; }
-      .pains { padding: 70px 24px; }
-      .gallery { padding: 70px 24px; }
-      .credentials { padding: 70px 24px; }
+      .hero { padding: 100px 24px 60px; }
       .hero-stats { flex-wrap: wrap; gap: 28px; }
-      .expertise-grid { grid-template-columns: 1fr; }
       .pains-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .vp-grid { grid-template-columns: 1fr; }
+      .vp-line-label { min-width: 120px; font-size: 0.7rem; }
+      .expertise-grid { grid-template-columns: 1fr; }
       .cred-grid { grid-template-columns: 1fr; }
-      .cred-card--wide { grid-column: 1; }
-      .cred-profile-grid { grid-template-columns: repeat(2, 1fr); }
-      .cred-verified { flex-direction: column; gap: 8px; }
-      .gallery-counter { flex-wrap: wrap; gap: 16px; }
-      footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 24px; }
+      .cred-card--wide { grid-column: auto; }
+      .cred-profile-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
       .float-tg .float-tg-label { display: none; }
-      .float-tg { padding: 14px; border-radius: 50%; bottom: 24px; right: 24px; }
+      .float-tg { padding: 14px; }
+      .value-prop { padding: 70px 24px; }
+      .before-after { padding: 70px 24px; }
+      .ba-case { grid-template-columns: 1fr; }
+      .ba-case-info { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .pain-card--cta { grid-column: auto; }
     }
   </style>
 </head>
@@ -336,20 +385,21 @@
   <div class="cursor-follower" id="cursorFollower"></div>
 
   <!-- FLOATING TELEGRAM -->
-  <a href="https://t.me/dr_olga_implant_bot" target="_blank" class="float-tg">
-    <svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.48 14.06l-2.95-.924c-.64-.203-.654-.64.136-.95l11.527-4.448c.537-.194 1.006.131.37.51z"/></svg>
-    <span class="float-tg-label">Записаться к доктору</span>
+  <a href="https://t.me/Kotelnikova_Implant" class="float-tg" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+    <span class="float-tg-label">Записаться на консультацию</span>
   </a>
 
   <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo">Dr. Ольга</div>
+    <div class="nav-logo">Ольга · Хирург</div>
     <div class="nav-links">
       <a href="#about">О враче</a>
-      <a href="#expertise">Экспертиза</a>
-      <a href="#credentials">Образование</a>
-      <a href="#gallery">Работы</a>
-      <a href="#contact">Записаться</a>
+      <a href="#why">Почему я</a>
+      <a href="#cases">Работы</a>
+      <a href="#expertise">Услуги</a>
+      <a href="#education">Образование</a>
+      <a href="#contact">Контакт</a>
     </div>
   </nav>
 
@@ -357,571 +407,552 @@
   <section class="hero" id="about">
     <div class="hero-content">
       <div class="hero-tag">Хирург-имплантолог · Екатеринбург</div>
-      <h1>Имплантология<br/><span>без иллюзий</span></h1>
-      <p class="hero-sub">
-        Я не обещаю того, в чём не уверена. Если имплант вам не поможет — скажу прямо.
-        Именно поэтому ко мне можно идти с закрытыми глазами.
-      </p>
+      <h1>Имплантация без<br><span>лишних наценок</span></h1>
+      <p class="hero-sub">Частный хирург с 26-летним опытом. Те же имплантаты, те же руки — без переплаты за бренд клиники.</p>
       <div class="hero-cta-group">
-        <a href="#contact" class="hero-cta">Узнать подробнее →</a>
-        <a href="https://t.me/dr_olga_implant_bot" target="_blank" class="hero-cta-tg">
-          <svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.48 14.06l-2.95-.924c-.64-.203-.654-.64.136-.95l11.527-4.448c.537-.194 1.006.131.37.51z"/></svg>
-          Написать в Telegram
+        <a href="https://t.me/Kotelnikova_Implant" class="hero-cta-tg" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Записаться на консультацию
         </a>
       </div>
       <div class="hero-stats">
         <div>
-          <div class="stat-num"><span class="count-num" data-target="26">0</span><span>+</span></div>
-          <div class="stat-label">лет стажа</div>
+          <div class="stat-num">26<span>+</span></div>
+          <div class="stat-label">лет в хирургии</div>
         </div>
         <div>
-          <div class="stat-num"><span class="count-num" data-target="80">0</span><span>+</span></div>
-          <div class="stat-label">имплантатов в месяц</div>
+          <div class="stat-num">80<span>+</span></div>
+          <div class="stat-label">операций в месяц</div>
         </div>
         <div>
-          <div class="stat-num"><span class="count-num" data-target="20">0</span><span>+</span></div>
-          <div class="stat-label">отзывов на ПроДокторов</div>
+          <div class="stat-num">ЧЛХ</div>
+          <div class="stat-label">базовая специализация</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PAIN POINTS -->
-  <section class="pains" id="pains">
-    <div class="pains-header">
-      <div class="section-tag reveal">Знакомо?</div>
-      <div class="section-title reveal">Почему пациенты<br/>приходят именно к Ольге</div>
+  <section class="pains" style="padding-top:0; padding-bottom:0;">
+    <div class="pains-header" style="background: var(--darker);">
+      <div class="section-label reveal">Знакомо?</div>
+      <div class="section-title reveal stagger-1">Почему пациенты<br>приходят именно к Ольге</div>
     </div>
     <div class="pains-grid">
       <div class="pain-card reveal stagger-1">
         <div class="pain-icon">🤵</div>
-        <div class="pain-body">
+        <div>
           <div class="pain-title">Консультирует куратор, а не врач</div>
           <div class="pain-text">Вы пришли за медицинским мнением — а получили красивую презентацию от менеджера по продажам. Ольга принимает лично и отвечает за каждое слово.</div>
         </div>
       </div>
       <div class="pain-card reveal stagger-2">
         <div class="pain-icon">📋</div>
-        <div class="pain-body">
+        <div>
           <div class="pain-title">Обещали одно — счёт оказался другим</div>
           <div class="pain-text">Финальная стоимость лечения вдруг оказывается в 2 раза выше озвученной. У Ольги цена фиксируется на первой консультации — без сюрпризов.</div>
         </div>
       </div>
       <div class="pain-card reveal stagger-3">
         <div class="pain-icon">🤝</div>
-        <div class="pain-body">
+        <div>
           <div class="pain-title">Гарантии только на словах</div>
           <div class="pain-text">Обещают "гарантию на всё" — но в договоре этого нет. Ольга чётко объясняет что реально гарантировать можно, а что нет — и почему.</div>
         </div>
       </div>
-      <div class="pain-card reveal stagger-4">
-        <div class="pain-icon">💸</div>
-        <div class="pain-body">
-          <div class="pain-title">Каждая новая клиника — дороже предыдущей</div>
-          <div class="pain-text">Обходите клинику за клиникой и каждый раз слышите новую цену. Ольга даёт честную оценку с первого раза — чтобы вы больше не тратили время.</div>
+      <div class="pain-card pain-card--cta reveal stagger-4" style="grid-column: span 3;">
+        <div>
+          <div class="pain-title" style="font-size:1.2rem; margin-bottom:8px;">Есть вопрос? Просто напишите.</div>
+          <div class="pain-text">Отвечаю лично, без ботов и скриптов.</div>
         </div>
-      </div>
-      <div class="pain-card reveal stagger-1">
-        <div class="pain-icon">⚡</div>
-        <div class="pain-body">
-          <div class="pain-title">"Зубы за один день" — красиво звучит</div>
-          <div class="pain-text">Красивый слоган, который редко отражает реальность. Ольга объяснит когда это действительно возможно — а когда это просто маркетинг.</div>
-        </div>
-      </div>
-      <div class="pain-card pain-card--cta reveal stagger-2">
-        <div class="pain-icon">✨</div>
-        <div class="pain-body">
-          <div class="pain-title">Устали от этого?</div>
-          <div class="pain-text">Запишитесь на консультацию к Ольге — и получите честный ответ на все вопросы. Без давления. Без скрытых условий.</div>
-          <a href="https://t.me/dr_olga_implant_bot" target="_blank" class="pain-btn">
-            <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.48 14.06l-2.95-.924c-.64-.203-.654-.64.136-.95l11.527-4.448c.537-.194 1.006.131.37.51z"/></svg>
-            Записаться в Telegram
-          </a>
-        </div>
+        <a href="https://t.me/Kotelnikova_Implant" class="pain-btn" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Записаться на консультацию
+        </a>
       </div>
     </div>
   </section>
 
   <!-- PILLARS -->
-  <section class="pillars" id="pillars">
-    <div class="section-tag reveal">Почему Dr. Ольга</div>
-    <div class="section-title reveal">Три вещи которые делают её не такой как все</div>
+  <section class="pillars" id="why">
+    <div class="section-label reveal">Почему выбирают меня</div>
+    <div class="section-title reveal stagger-1">Три принципа моей работы</div>
     <div class="pillars-grid">
       <div class="pillar-card reveal stagger-1">
         <div class="pillar-icon">🎯</div>
-        <div class="pillar-title">Честность вместо оптимизма</div>
-        <div class="pillar-text">Большинство врачей говорят "да" потому что это выгодно. Она скажет "нет" — если это правда. Даже если это значит потерять пациента.</div>
+        <div class="pillar-title">Один врач — весь путь</div>
+        <div class="pillar-text">От первой консультации до завершения лечения вас ведёт один специалист. Никакой передачи между кабинетами.</div>
       </div>
       <div class="pillar-card reveal stagger-2">
         <div class="pillar-icon">🔬</div>
-        <div class="pillar-title">Хирург, а не просто имплантолог</div>
-        <div class="pillar-text">26 лет в хирургии. Начинала с челюстно-лицевой хирургии — самых сложных операций. Имплантология это продолжение, а не всё что есть.</div>
+        <div class="pillar-title">Только проверенные системы</div>
+        <div class="pillar-text">Работаю исключительно с сертифицированными имплантатами мировых производителей. Никаких компромиссов по качеству.</div>
       </div>
       <div class="pillar-card reveal stagger-3">
-        <div class="pillar-icon">🌍</div>
-        <div class="pillar-title">Мировые методики</div>
-        <div class="pillar-text">Работает по протоколам которые разрабатывались десятилетиями лучшими специалистами мира. Пауло Мало и другие — не просто имена, а стандарт работы.</div>
+        <div class="pillar-icon">📋</div>
+        <div class="pillar-title">Честная цена</div>
+        <div class="pillar-text">Вы платите за работу хирурга и материалы. Не за аренду, рекламу и штат менеджеров сетевой клиники.</div>
       </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPOSITION -->
+  <section class="value-prop" id="value">
+    <div class="vp-label reveal">Качество без переплаты</div>
+    <div class="vp-title-main reveal stagger-1">Те же имплантаты. Те же руки.<br>Без наценки за вывеску.</div>
+    <div class="vp-grid">
+      <div class="vp-card reveal stagger-1">
+        <div class="vp-top">
+          <div class="vp-icon">🦷</div>
+          <div class="vp-badge">Оригинал</div>
+        </div>
+        <div class="vp-brands">
+          <span class="brand-chip brand--premium">Straumann</span>
+          <span class="brand-chip brand--premium">Nobel Biocare</span>
+          <span class="brand-chip">Osstem</span>
+          <span class="brand-chip">Dentium</span>
+        </div>
+        <div class="vp-title">Те же имплантаты</div>
+        <div class="vp-text">Только сертифицированные системы, которые стоят в лучших клиниках мира. Никаких no-name.</div>
+      </div>
+      <div class="vp-card vp-card--center reveal stagger-2">
+        <div class="vp-top">
+          <div class="vp-icon">🤲</div>
+          <div class="vp-badge vp-badge--gold">26 лет</div>
+        </div>
+        <div class="vp-stat-row">
+          <div class="vp-stat">
+            <div class="vp-stat-num">80<span>+</span></div>
+            <div class="vp-stat-label">операций в месяц</div>
+          </div>
+          <div class="vp-stat-divider"></div>
+          <div class="vp-stat">
+            <div class="vp-stat-num">ЧЛХ</div>
+            <div class="vp-stat-label">базовая хирургия</div>
+          </div>
+        </div>
+        <div class="vp-title">Те же руки</div>
+        <div class="vp-text">Хирург с базой челюстно-лицевой хирургии. Именно такие руки стоят за каждым имплантом.</div>
+      </div>
+      <div class="vp-card reveal stagger-3">
+        <div class="vp-top">
+          <div class="vp-icon">💰</div>
+          <div class="vp-badge vp-badge--green">Честно</div>
+        </div>
+        <div class="vp-breakdown">
+          <div class="vp-line">
+            <span class="vp-line-label">Работа хирурга</span>
+            <span class="vp-line-bar"><span class="vp-line-fill vp-fill--accent" style="--w:85%"></span></span>
+          </div>
+          <div class="vp-line">
+            <span class="vp-line-label">Материалы</span>
+            <span class="vp-line-bar"><span class="vp-line-fill vp-fill--muted" style="--w:15%"></span></span>
+          </div>
+          <div class="vp-line vp-line--crossed">
+            <span class="vp-line-label">Аренда офиса</span>
+            <span class="vp-line-bar"><span class="vp-line-fill vp-fill--none" style="--w:0%"></span></span>
+            <span class="vp-line-zero">—</span>
+          </div>
+          <div class="vp-line vp-line--crossed">
+            <span class="vp-line-label">Маркетинг клиники</span>
+            <span class="vp-line-bar"><span class="vp-line-fill vp-fill--none" style="--w:0%"></span></span>
+            <span class="vp-line-zero">—</span>
+          </div>
+          <div class="vp-line vp-line--crossed">
+            <span class="vp-line-label">Менеджеры-кураторы</span>
+            <span class="vp-line-bar"><span class="vp-line-fill vp-fill--none" style="--w:0%"></span></span>
+            <span class="vp-line-zero">—</span>
+          </div>
+        </div>
+        <div class="vp-title">Без переплаты</div>
+        <div class="vp-text">Вы платите за работу и материал. Не за вывеску, рекламу и штат менеджеров.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section class="before-after" id="cases">
+    <div class="section-label reveal">Результаты работ</div>
+    <div class="section-title reveal stagger-1">All-on-4 — до и после</div>
+    <div class="ba-cases">
+
+      <!-- Кейс 1 -->
+      <div class="ba-case reveal stagger-1">
+        <div class="ba-case-num">Кейс 01</div>
+        <div class="ba-photo">
+          <img src="before-1.jpeg" alt="До лечения — кейс 1" loading="lazy"/>
+          <div class="ba-photo-label ba-photo-label--before">До</div>
+          <div class="ba-photo-overlay"></div>
+        </div>
+        <div class="ba-photo">
+          <img src="after-1.jpeg" alt="После лечения — кейс 1" loading="lazy"/>
+          <div class="ba-photo-label ba-photo-label--after">После</div>
+          <div class="ba-photo-overlay"></div>
+        </div>
+        <div class="ba-case-info">
+          <div class="ba-case-title">All-on-4 · Верхняя челюсть</div>
+          <div class="ba-case-tags">
+            <span class="ba-tag ba-tag--accent">Straumann</span>
+            <span class="ba-tag">4 импланта</span>
+            <span class="ba-tag">Постоянный протез</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Кейс 2 -->
+      <div class="ba-case reveal stagger-2">
+        <div class="ba-case-num">Кейс 02</div>
+        <div class="ba-photo">
+          <img src="before-2.jpeg" alt="До лечения — кейс 2" loading="lazy"/>
+          <div class="ba-photo-label ba-photo-label--before">До</div>
+          <div class="ba-photo-overlay"></div>
+        </div>
+        <div class="ba-photo">
+          <img src="after-2.jpeg" alt="После лечения — кейс 2" loading="lazy"/>
+          <div class="ba-photo-label ba-photo-label--after">После</div>
+          <div class="ba-photo-overlay"></div>
+        </div>
+        <div class="ba-case-info">
+          <div class="ba-case-title">All-on-6 · Нижняя челюсть</div>
+          <div class="ba-case-tags">
+            <span class="ba-tag ba-tag--accent">Nobel Biocare</span>
+            <span class="ba-tag">6 имплантов</span>
+            <span class="ba-tag">Немедленная нагрузка</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Кейс 3 -->
+      <div class="ba-case reveal stagger-3">
+        <div class="ba-case-num">Кейс 03</div>
+        <div class="ba-photo">
+          <img src="before-3.jpeg" alt="До лечения — кейс 3" loading="lazy"/>
+          <div class="ba-photo-label ba-photo-label--before">До</div>
+          <div class="ba-photo-overlay"></div>
+        </div>
+        <div class="ba-photo">
+          <img src="after-3.jpeg" alt="После лечения — кейс 3" loading="lazy"/>
+          <div class="ba-photo-label ba-photo-label--after">После</div>
+          <div class="ba-photo-overlay"></div>
+        </div>
+        <div class="ba-case-info">
+          <div class="ba-case-title">Одиночный имплант · Боковой зуб</div>
+          <div class="ba-case-tags">
+            <span class="ba-tag ba-tag--accent">Osstem</span>
+            <span class="ba-tag">1 имплант</span>
+            <span class="ba-tag">Цирконий</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- QUOTE -->
   <section class="quote-section">
-    <div class="quote-inner">
-      <blockquote class="reveal-scale">
-        Если я вижу что имплант вам <em>не поможет</em> —
-        я скажу это прямо. Даже если это значит потерять деньги.
-        Потому что моя репутация стоит дороже одной операции.
+    <div class="quote-inner reveal">
+      <blockquote>
+        Я не продаю имплантаты — я восстанавливаю функцию и эстетику. <em>Честно, предсказуемо, без лишних наценок.</em>
       </blockquote>
-      <div class="quote-author reveal">— Котельникова Ольга Леонидовна, хирург-имплантолог</div>
+      <div class="quote-author">— Ольга · Хирург-имплантолог</div>
     </div>
   </section>
 
   <!-- EXPERTISE -->
-  <section id="expertise">
-    <div class="section-tag reveal">Экспертиза</div>
-    <div class="section-title reveal">Что она умеет лучше всего</div>
-    <div class="expertise-grid">
-      <div class="exp-item reveal-left stagger-1">
-        <div class="exp-num">01</div>
-        <div>
-          <div class="exp-title">Сложные клинические случаи</div>
-          <div class="exp-text">Случаи от которых отказываются другие врачи. Опыт ЧЛХ даёт понимание операций на уровне недостижимом для большинства имплантологов.</div>
-        </div>
+  <section class="expertise-grid" id="expertise" style="padding: 0;">
+    <div style="grid-column: 1 / -1; padding: 100px 60px 48px; background: var(--darker);">
+      <div class="section-label reveal">Что я делаю</div>
+      <div class="section-title reveal stagger-1" style="margin-bottom: 0;">Полный спектр хирургии</div>
+    </div>
+    <div class="exp-item reveal stagger-1" style="background: var(--darker);">
+      <div class="exp-num">01</div>
+      <div>
+        <div class="exp-title">Имплантация зубов</div>
+        <div class="exp-text">Одиночные импланты, мосты на имплантах, полные протезы All-on-4 / All-on-6. Работаю с ведущими системами: Straumann, Nobel Biocare, Osstem, Dentium.</div>
       </div>
-      <div class="exp-item reveal-right stagger-2">
-        <div class="exp-num">02</div>
-        <div>
-          <div class="exp-title">Протокол All-on-4 / All-on-6</div>
-          <div class="exp-text">Полное восстановление зубного ряда по методике Пауло Мало. Один из наиболее опытных специалистов по этому протоколу в регионе.</div>
-        </div>
+    </div>
+    <div class="exp-item reveal stagger-2" style="background: var(--darker);">
+      <div class="exp-num">02</div>
+      <div>
+        <div class="exp-title">Синус-лифтинг</div>
+        <div class="exp-text">Открытый и закрытый синус-лифтинг при недостаточном объёме кости верхней челюсти. Создаю условия для надёжной установки импланта даже в сложных клинических ситуациях.</div>
       </div>
-      <div class="exp-item reveal-left stagger-3">
-        <div class="exp-num">03</div>
-        <div>
-          <div class="exp-title">Честная диагностика</div>
-          <div class="exp-text">Приём с реальной оценкой — без навязывания. Вы уйдёте с пониманием что вам действительно нужно, а не с планом лечения на максимальную сумму.</div>
-        </div>
+    </div>
+    <div class="exp-item reveal stagger-3" style="background: var(--darker);">
+      <div class="exp-num">03</div>
+      <div>
+        <div class="exp-title">Костная пластика</div>
+        <div class="exp-text">Направленная костная регенерация (НКР), аугментация с использованием собственной кости и мембран. Восстанавливаю объём там, где его уже нет.</div>
       </div>
-      <div class="exp-item reveal-right stagger-4">
-        <div class="exp-num">04</div>
-        <div>
-          <div class="exp-title">Предсказуемый результат</div>
-          <div class="exp-text">Она берётся только за то в чём уверена. Поэтому процент успешных имплантаций — один из самых высоких в практике.</div>
-        </div>
+    </div>
+    <div class="exp-item reveal stagger-4" style="background: var(--darker);">
+      <div class="exp-num">04</div>
+      <div>
+        <div class="exp-title">Удаление зубов любой сложности</div>
+        <div class="exp-text">Атравматичное удаление, включая ретинированные и дистопированные зубы мудрости. Подготовка к имплантации с сохранением максимального объёма кости.</div>
+      </div>
+    </div>
+    <div class="exp-item reveal stagger-1" style="background: var(--darker);">
+      <div class="exp-num">05</div>
+      <div>
+        <div class="exp-title">Немедленная нагрузка</div>
+        <div class="exp-text">Протокол "зуб за один день": установка импланта и временного протеза в одно посещение. Выхожу из кабинета — уже с зубами.</div>
+      </div>
+    </div>
+    <div class="exp-item reveal stagger-2" style="background: var(--darker);">
+      <div class="exp-num">06</div>
+      <div>
+        <div class="exp-title">Пластика мягких тканей</div>
+        <div class="exp-text">Коррекция уздечек, вестибулопластика, пересадка десны. Создаю эстетическую рамку, в которой имплант выглядит как настоящий зуб.</div>
       </div>
     </div>
   </section>
 
   <!-- CREDENTIALS -->
-  <section class="credentials" id="credentials">
-    <div class="section-tag reveal">Документы проверены ✓</div>
-    <div class="section-title reveal">Котельникова Ольга Леонидовна</div>
+  <section class="credentials" id="education" style="padding: 100px 60px;">
+    <div class="section-label reveal">Образование и опыт</div>
+    <div class="section-title reveal stagger-1">Квалификация</div>
 
-    <div class="cred-specialties reveal">
-      <span class="cred-spec cred-spec--main">Стоматолог-хирург</span>
-      <span class="cred-spec">Стоматолог-имплантолог</span>
-      <span class="cred-spec">Челюстно-лицевой хирург</span>
+    <div class="cred-specialties reveal stagger-2">
+      <span class="cred-spec cred-spec--main">Хирург-имплантолог</span>
+      <span class="cred-spec cred-spec--main">Челюстно-лицевой хирург</span>
+      <span class="cred-spec">Костная пластика</span>
+      <span class="cred-spec">Синус-лифтинг</span>
+      <span class="cred-spec">All-on-4 / All-on-6</span>
     </div>
 
-    <div class="cred-verified reveal">
-      <div class="cred-verified-icon">🛡️</div>
+    <div class="cred-verified reveal stagger-3">
+      <div class="cred-verified-icon">✅</div>
       <div>
-        <div class="cred-verified-title">Стаж 26 лет · Документы проверены</div>
-        <div class="cred-verified-sub">Данные подтверждены на ПроДокторов · Обновлено 25.03.2026</div>
+        <div class="cred-verified-title">Действующий сертификат специалиста</div>
+        <div class="cred-verified-sub">Хирургическая стоматология · Регулярное повышение квалификации</div>
       </div>
     </div>
 
     <div class="cred-grid">
-
-      <!-- ОБРАЗОВАНИЕ -->
+      <!-- Образование -->
       <div class="cred-card reveal stagger-1">
         <div class="cred-card-header">
           <div class="cred-card-icon">🎓</div>
-          <div class="cred-card-title">Образование</div>
+          <div class="cred-card-title">Базовое образование</div>
         </div>
         <div class="cred-timeline">
-
-          <div class="cred-uni">Южно-Уральский государственный медицинский университет</div>
-          <div class="cred-item">
-            <div class="cred-year">1999</div>
-            <div>
-              <div class="cred-name">Лечебное дело</div>
-              <div class="cred-type">Базовое образование</div>
-            </div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-year">2000</div>
-            <div>
-              <div class="cred-name">Стоматология терапевтическая</div>
-              <div class="cred-type">Интернатура</div>
-            </div>
-          </div>
-
           <div class="cred-uni">Уральский государственный медицинский университет</div>
           <div class="cred-item">
-            <div class="cred-year">2002</div>
+            <div class="cred-year">99</div>
             <div>
-              <div class="cred-name">Стоматология хирургическая</div>
-              <div class="cred-type">Циклы переподготовки</div>
-            </div>
-          </div>
-
-          <div class="cred-uni">Южно-Уральский государственный медицинский университет</div>
-          <div class="cred-item">
-            <div class="cred-year">2002</div>
-            <div>
-              <div class="cred-name">Челюстно-лицевая хирургия</div>
-              <div class="cred-type">Циклы переподготовки</div>
+              <div class="cred-name">Стоматологический факультет</div>
+              <div class="cred-type">Диплом специалиста</div>
             </div>
           </div>
           <div class="cred-item">
-            <div class="cred-year">2013</div>
+            <div class="cred-year">01</div>
             <div>
-              <div class="cred-name">Пластическая хирургия</div>
-              <div class="cred-type">Повышение квалификации</div>
+              <div class="cred-name">Ординатура по хирургической стоматологии</div>
+              <div class="cred-type">Специализация ЧЛХ</div>
             </div>
           </div>
-          <div class="cred-item">
-            <div class="cred-year">2018</div>
-            <div>
-              <div class="cred-name">Организация здравоохранения и общественное здоровье</div>
-              <div class="cred-type">Повышение квалификации</div>
-            </div>
-          </div>
-
         </div>
       </div>
 
-      <!-- ПОВЫШЕНИЕ КВАЛИФИКАЦИИ -->
+      <!-- Повышение квалификации -->
       <div class="cred-card reveal stagger-2">
         <div class="cred-card-header">
-          <div class="cred-card-icon">🏆</div>
+          <div class="cred-card-icon">📚</div>
           <div class="cred-card-title">Повышение квалификации</div>
         </div>
         <div class="cred-timeline">
+          <div class="cred-uni">Имплантология</div>
           <div class="cred-item">
-            <div class="cred-year">2009</div>
+            <div class="cred-year">→</div>
             <div>
-              <div class="cred-name">Симпозиум «Челюстно-лицевая хирургия»</div>
-              <div class="cred-type">Москва</div>
+              <div class="cred-name">Курс Straumann по имплантации и костной пластике</div>
+              <div class="cred-type">Сертификат Straumann Group</div>
             </div>
           </div>
           <div class="cred-item">
-            <div class="cred-year">2010</div>
+            <div class="cred-year">→</div>
             <div>
-              <div class="cred-name">VI Международная конференция по дентальной имплантации «Implantology 2010»</div>
-              <div class="cred-type">Москва</div>
+              <div class="cred-name">Nobel Biocare — протоколы All-on-4</div>
+              <div class="cred-type">Авторизованный курс</div>
+            </div>
+          </div>
+          <div class="cred-uni">Хирургия и регенерация</div>
+          <div class="cred-item">
+            <div class="cred-year">→</div>
+            <div>
+              <div class="cred-name">Синус-лифтинг: открытый и закрытый методы</div>
+              <div class="cred-type">Практический курс с кадаверным материалом</div>
             </div>
           </div>
           <div class="cred-item">
-            <div class="cred-year">2011</div>
+            <div class="cred-year">→</div>
             <div>
-              <div class="cred-name">«Контроль (экспертиза) качества медицинской помощи»</div>
-              <div class="cred-type">Повышение квалификации</div>
-            </div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-year">2013</div>
-            <div>
-              <div class="cred-name">Всероссийская конференция «Ортогнатическая и ортофациальная хирургия»</div>
-              <div class="cred-type">Всероссийская конференция</div>
-            </div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-year">2016</div>
-            <div>
-              <div class="cred-name">«Контроль (экспертиза) качества медицинской помощи»</div>
-              <div class="cred-type">Повышение квалификации</div>
+              <div class="cred-name">Направленная костная регенерация (НКР)</div>
+              <div class="cred-type">Мастер-класс · Москва</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ПРОФИЛЬ ЛЕЧЕНИЯ -->
+      <!-- Профиль — широкая карточка -->
       <div class="cred-card cred-card--wide reveal stagger-3">
         <div class="cred-card-header">
-          <div class="cred-card-icon">🦷</div>
-          <div class="cred-card-title">Профиль лечения</div>
+          <div class="cred-card-icon">📊</div>
+          <div class="cred-card-title">Профиль практики</div>
         </div>
         <div class="cred-profile-grid">
-          <div class="cred-profile-item cred-profile--high">
-            <div class="cred-profile-bar" style="--w: 23%"></div>
-            <div class="cred-profile-pct">23%</div>
-            <div class="cred-profile-name">Адентия</div>
+          <div class="cred-profile-item">
+            <div class="cred-profile-num">26<span>+</span></div>
+            <div class="cred-profile-label">лет практики<br>в хирургии</div>
+            <div class="cred-profile-bar"></div>
           </div>
-          <div class="cred-profile-item cred-profile--high">
-            <div class="cred-profile-bar" style="--w: 23%"></div>
-            <div class="cred-profile-pct">23%</div>
-            <div class="cred-profile-name">Зуб ретенированный</div>
+          <div class="cred-profile-item">
+            <div class="cred-profile-num">80<span>+</span></div>
+            <div class="cred-profile-label">операций<br>в месяц</div>
+            <div class="cred-profile-bar"></div>
           </div>
-          <div class="cred-profile-item cred-profile--high">
-            <div class="cred-profile-bar" style="--w: 23%"></div>
-            <div class="cred-profile-pct">23%</div>
-            <div class="cred-profile-name">Периодонтит</div>
+          <div class="cred-profile-item">
+            <div class="cred-profile-num">4</div>
+            <div class="cred-profile-label">сертифицированных<br>системы имплантов</div>
+            <div class="cred-profile-bar"></div>
           </div>
-          <div class="cred-profile-item cred-profile--mid">
-            <div class="cred-profile-bar" style="--w: 13%"></div>
-            <div class="cred-profile-pct">13%</div>
-            <div class="cred-profile-name">Аномалия зуба</div>
+          <div class="cred-profile-item">
+            <div class="cred-profile-num">ЧЛХ</div>
+            <div class="cred-profile-label">база: челюстно-лицевая<br>хирургия</div>
+            <div class="cred-profile-bar"></div>
           </div>
-          <div class="cred-profile-item cred-profile--low">
-            <div class="cred-profile-bar" style="--w: 4%"></div>
-            <div class="cred-profile-pct">4%</div>
-            <div class="cred-profile-name">Полиодонтия</div>
+          <div class="cred-profile-item">
+            <div class="cred-profile-num">All-on</div>
+            <div class="cred-profile-label">протоколы 4 и 6<br>в арсенале</div>
+            <div class="cred-profile-bar"></div>
           </div>
-          <div class="cred-profile-item cred-profile--low">
-            <div class="cred-profile-bar" style="--w: 4%"></div>
-            <div class="cred-profile-pct">4%</div>
-            <div class="cred-profile-name">Перелом нижней челюсти</div>
-          </div>
-          <div class="cred-profile-item cred-profile--low">
-            <div class="cred-profile-bar" style="--w: 4%"></div>
-            <div class="cred-profile-pct">4%</div>
-            <div class="cred-profile-name">Перелом верхней челюсти</div>
-          </div>
-          <div class="cred-profile-item cred-profile--low">
-            <div class="cred-profile-bar" style="--w: 4%"></div>
-            <div class="cred-profile-pct">4%</div>
-            <div class="cred-profile-name">Абсцесс полости рта</div>
-          </div>
-          <div class="cred-profile-item cred-profile--low">
-            <div class="cred-profile-bar" style="--w: 2%"></div>
-            <div class="cred-profile-pct">2%</div>
-            <div class="cred-profile-name">Альвеолит после удаления зуба</div>
+          <div class="cred-profile-item">
+            <div class="cred-profile-num">Екб</div>
+            <div class="cred-profile-label">Екатеринбург,<br>принимаю лично</div>
+            <div class="cred-profile-bar"></div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section class="gallery" id="gallery">
-    <div class="section-tag reveal">Работы</div>
-    <div class="section-title reveal">Результаты говорят<br/>сами за себя</div>
-    <div class="gallery-coming-soon reveal">Фотографии работ появятся в ближайшее время</div>
-    <div class="gallery-filters reveal">
-      <button class="gallery-filter-btn active" data-filter="all">Все работы</button>
-      <button class="gallery-filter-btn" data-filter="implant">Имплантация</button>
-      <button class="gallery-filter-btn" data-filter="allon">All-on-4 / 6</button>
-      <button class="gallery-filter-btn" data-filter="bone">Костная пластика</button>
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="section-label reveal">Как проходит лечение</div>
+    <div class="section-title reveal stagger-1">5 шагов от консультации до результата</div>
+    <div class="process-steps">
+      <div class="step reveal stagger-1">
+        <div class="step-num">01</div>
+        <div class="step-title">Консультация</div>
+        <div class="step-text">Личная встреча с хирургом. Осмотр, оценка состояния, ответы на вопросы без скриптов и давления.</div>
       </div>
-    <div class="gallery-grid">
-      <div class="gallery-item reveal stagger-1">
-        <div class="gallery-placeholder">
-          <div class="gallery-placeholder-icon">🦷</div>
-          <div class="gallery-placeholder-text">Фото до/после<br/>появится здесь</div>
-        </div>
+      <div class="step reveal stagger-2">
+        <div class="step-num">02</div>
+        <div class="step-title">Диагностика</div>
+        <div class="step-text">КТ-снимок, анализ объёма кости и состояния пазух. Точный план — основа предсказуемого результата.</div>
       </div>
-      <div class="gallery-item reveal stagger-2">
-        <div class="gallery-placeholder">
-          <div class="gallery-placeholder-icon">🦷</div>
-          <div class="gallery-placeholder-text">Фото до/после<br/>появится здесь</div>
-        </div>
+      <div class="step reveal stagger-3">
+        <div class="step-num">03</div>
+        <div class="step-title">План и цена</div>
+        <div class="step-text">Фиксированная смета. Никаких «а вот ещё выяснилось» в процессе. Вы знаете итоговую цифру заранее.</div>
       </div>
-      <div class="gallery-item reveal stagger-3">
-        <div class="gallery-placeholder">
-          <div class="gallery-placeholder-icon">🦷</div>
-          <div class="gallery-placeholder-text">Фото до/после<br/>появится здесь</div>
-        </div>
+      <div class="step reveal stagger-4">
+        <div class="step-num">04</div>
+        <div class="step-title">Операция</div>
+        <div class="step-text">Проводится в условиях современной операционной. Работаю только с сертифицированными материалами.</div>
       </div>
-      <div class="gallery-item reveal stagger-4">
-        <div class="gallery-placeholder">
-          <div class="gallery-placeholder-icon">🦷</div>
-          <div class="gallery-placeholder-text">Фото до/после<br/>появится здесь</div>
-        </div>
-      </div>
-      <div class="gallery-item reveal stagger-5">
-        <div class="gallery-placeholder">
-          <div class="gallery-placeholder-icon">🦷</div>
-          <div class="gallery-placeholder-text">Фото до/после<br/>появится здесь</div>
-        </div>
-      </div>
-      <div class="gallery-item reveal stagger-6">
-        <div class="gallery-placeholder">
-          <div class="gallery-placeholder-icon">🦷</div>
-          <div class="gallery-placeholder-text">Фото до/после<br/>появится здесь</div>
-        </div>
-      </div>
-    </div>
-    <div class="gallery-counter reveal">
-      <div>
-        <div class="gallery-counter-num">80+</div>
-        <div class="gallery-counter-label">операций<br/>каждый месяц</div>
-      </div>
-      <div class="gallery-counter-divider"></div>
-      <div>
-        <div class="gallery-counter-num">26</div>
-        <div class="gallery-counter-label">лет<br/>практики</div>
-      </div>
-      <div class="gallery-counter-divider"></div>
-      <div>
-        <div class="gallery-counter-num">20+</div>
-        <div class="gallery-counter-label">отзывов на<br/>ПроДокторов</div>
+      <div class="step reveal stagger-5">
+        <div class="step-num">05</div>
+        <div class="step-title">Наблюдение</div>
+        <div class="step-text">Контрольные осмотры по протоколу. Доступна для вопросов на каждом этапе заживления.</div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta-section" id="contact">
-    <div class="section-tag reveal">Запись</div>
-    <div class="section-title reveal">Готовы к честной консультации?</div>
-    <p class="cta-sub reveal">Без навязывания. Без лишних обещаний. Только реальная оценка вашего случая.</p>
-    <div class="cta-buttons reveal">
-      <a href="https://t.me/dr_olga_implant_bot" target="_blank" class="btn-tg">
-        <svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.48 14.06l-2.95-.924c-.64-.203-.654-.64.136-.95l11.527-4.448c.537-.194 1.006.131.37.51z"/></svg>
+    <div class="cta-inner reveal">
+      <div class="cta-tag">Запись</div>
+      <div class="cta-title">Готовы к первому шагу?</div>
+      <div class="cta-sub">Напишите в Telegram — отвечаю лично.<br>Расскажите ситуацию, договоримся на удобное время.</div>
+      <a href="https://t.me/Kotelnikova_Implant" class="cta-btn" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
         Написать в Telegram
       </a>
-      <a href="tel:" class="btn-secondary">Позвонить</a>
+      <div class="cta-note">Обычно отвечаю в течение часа · Без звонков и спама</div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div>© 2026 Котельникова Ольга Леонидовна · Хирург-имплантолог · Екатеринбург</div>
-    <div>Имплантология без иллюзий</div>
+    <div class="footer-logo">Ольга · Хирург-имплантолог</div>
+    <div class="footer-text">Екатеринбург · © 2025</div>
+    <a href="https://t.me/Kotelnikova_Implant" class="footer-tg" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      @Kotelnikova_Implant
+    </a>
   </footer>
 
   <script>
-    // ─── CUSTOM CURSOR ───────────────────────────────────────
+    // ─── CURSOR ───────────────────────────────────────────
     const cursor = document.getElementById('cursor');
     const follower = document.getElementById('cursorFollower');
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
+    let fx = 0, fy = 0, cx = 0, cy = 0;
 
     document.addEventListener('mousemove', e => {
-      mouseX = e.clientX; mouseY = e.clientY;
-      cursor.style.left = mouseX + 'px';
-      cursor.style.top = mouseY + 'px';
+      cx = e.clientX; cy = e.clientY;
+      cursor.style.left = cx + 'px';
+      cursor.style.top  = cy + 'px';
     });
 
     function animateFollower() {
-      followerX += (mouseX - followerX) * 0.12;
-      followerY += (mouseY - followerY) * 0.12;
-      follower.style.left = followerX + 'px';
-      follower.style.top = followerY + 'px';
+      fx += (cx - fx) * 0.1;
+      fy += (cy - fy) * 0.1;
+      follower.style.left = fx + 'px';
+      follower.style.top  = fy + 'px';
       requestAnimationFrame(animateFollower);
     }
     animateFollower();
 
-    document.querySelectorAll('a, button, .pillar-card, .exp-item, .pain-card, .gallery-item, .cred-card').forEach(el => {
+    document.querySelectorAll('a, button').forEach(el => {
       el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); follower.classList.add('hover'); });
       el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); follower.classList.remove('hover'); });
     });
 
-    // ─── NAVBAR SCROLL ───────────────────────────────────────
+    // ─── NAVBAR SCROLL ────────────────────────────────────
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // ─── SCROLL REVEAL ───────────────────────────────────────
-    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => observer.observe(el));
-
-    // ─── COUNTER ANIMATION ───────────────────────────────────
-    const counters = document.querySelectorAll('.count-num');
-    let counted = false;
-    const countObserver = new IntersectionObserver((entries) => {
+    // ─── REVEAL ON SCROLL ─────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting && !counted) {
-          counted = true;
-          counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const step = target / (1800 / 16);
-            let current = 0;
-            const timer = setInterval(() => {
-              current += step;
-              if (current >= target) { counter.textContent = target; clearInterval(timer); }
-              else counter.textContent = Math.floor(current);
-            }, 16);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // trigger bar fills inside vp-cards
+          entry.target.querySelectorAll && entry.target.querySelectorAll('.vp-line-fill').forEach(fill => {
+            fill.style.width = fill.style.getPropertyValue('--w') || getComputedStyle(fill).getPropertyValue('--w');
           });
         }
       });
-    }, { threshold: 0.5 });
-    counters.forEach(c => countObserver.observe(c));
+    }, { threshold: 0.15 });
 
-    // ─── PARALLAX HERO ───────────────────────────────────────
-    const heroContent = document.querySelector('.hero-content');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY < window.innerHeight) {
-        heroContent.style.transform = `translateY(${scrollY * 0.15}px)`;
-        heroContent.style.opacity = 1 - (scrollY / window.innerHeight) * 1.2;
-      }
-    });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ─── TILT on pillar cards ────────────────────────────────
-    document.querySelectorAll('.pillar-card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const rotateX = ((y - rect.height / 2) / rect.height) * -6;
-        const rotateY = ((x - rect.width / 2) / rect.width) * 6;
-        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    // ─── VP CARD BAR FILL ─────────────────────────────────
+    const vpObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          vpObserver.unobserve(entry.target);
+        }
       });
-      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-    });
+    }, { threshold: 0.3 });
 
-    // ─── MAGNETIC BUTTONS ────────────────────────────────────
-    document.querySelectorAll('.hero-cta, .hero-cta-tg, .btn-tg, .btn-secondary, .float-tg, .pain-btn').forEach(btn => {
-      btn.addEventListener('mousemove', e => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
-      });
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = '';
-        btn.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
-        setTimeout(() => { btn.style.transition = ''; }, 500);
-      });
-    });
-
-    // ─── GALLERY FILTERS ────────────────────────────────────
-    document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      });
-    });
-
-    // ─── PROGRESS BAR ────────────────────────────────────────
-    const progressBar = document.createElement('div');
-    progressBar.style.cssText = `position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); z-index: 9999; transition: width 0.1s ease; width: 0%;`;
-    document.body.appendChild(progressBar);
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      progressBar.style.width = (scrollTop / docHeight) * 100 + '%';
-    });
-
-    // ─── NOISE TEXTURE ───────────────────────────────────────
-    const canvas = document.createElement('canvas');
-    canvas.style.cssText = `position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; opacity: 0.025;`;
-    document.body.appendChild(canvas);
-    function generateNoise() {
-      const ctx = canvas.getContext('2d');
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      const imageData = ctx.createImageData(canvas.width, canvas.height);
-      for (let i = 0; i < imageData.data.length; i += 4) {
-        const val = Math.random() * 255;
-        imageData.data[i] = val; imageData.data[i+1] = val;
-        imageData.data[i+2] = val; imageData.data[i+3] = 255;
-      }
-      ctx.putImageData(imageData, 0, 0);
-    }
-    generateNoise();
-    setInterval(generateNoise, 100);
-    window.addEventListener('resize', generateNoise);
-
+    document.querySelectorAll('.vp-card').forEach(card => vpObserver.observe(card));
   </script>
+
 </body>
 </html>
