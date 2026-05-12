@@ -415,6 +415,7 @@ loader.load('./teeth_compressed.glb', (gltf) => {
   });
 
   scene.add(modelRoot);
+  console.log('TOTAL MESHES:', Object.keys(toothMeshes).length);
   document.getElementById('loadingOverlay').style.display = 'none';
 
 }, undefined, (err) => {
