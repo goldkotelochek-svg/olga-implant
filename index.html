@@ -12,15 +12,13 @@
           m[i].l=1*new Date();
           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109235208',
-   'ym');
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109235208','ym');
       ym(109235208, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
   </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/109235208"
-   style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <noscript><div><img src="https://mc.yandex.ru/watch/109235208" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
 
-  <link href="https://fonts.googleapis.com...
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -284,115 +282,132 @@
     .credentials { background: var(--dark); }
     .cred-specialties { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
     .cred-spec { font-size: 0.85rem; font-weight: 500; padding: 6px 18px; border-radius: 100px; border: 1px solid var(--border); color: var(--muted); transition: all 0.3s ease; }
-    .cred-spec--main { background: rgba(201,169,110,0.1); border-color: rgba(201,169,110,0.3); color: var(--accent); font-weight: 600; }
-    .cred-verified { display: flex; align-items: center; gap: 16px; background: rgba(80,200,120,0.06); border: 1px solid rgba(80,200,120,0.2); border-radius: 12px; padding: 16px 24px; margin-bottom: 48px; width: fit-content; }
-    .cred-verified-icon { font-size: 1.5rem; }
-    .cred-verified-title { font-size: 0.95rem; font-weight: 600; color: #80d4a0; }
-    .cred-verified-sub { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-    .cred-card { background: var(--card); padding: 40px; transition: background 0.3s ease; }
-    .cred-card:hover { background: #141414; }
-    .cred-card--wide { grid-column : 1 / -1; }
-    .cred-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
-    .cred-card-icon { font-size: 1.4rem; }
-    .cred-card-title { font-size: 1.1rem; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
-    .cred-timeline { display: flex; flex-direction: column; gap: 0; }
-    .cred-uni { font-size: 0.8rem; font-weight: 600; color: var(--accent); letter-spacing: 0.03em; margin-top: 24px; margin-bottom: 12px; padding-left: 16px; border-left: 2px solid rgba(201,169,110,0.3); }
-    .cred-uni:first-child { margin-top: 0; }
-    .cred-item { display: flex; gap: 20px; align-items: flex-start; padding: 12px 0 12px 16px; border-left: 2px solid var(--border); position: relative; transition: border-color 0.3s ease; }
-    .cred-item::before { content: ''; position: absolute; left: -5px; top: 18px; width: 8px; height: 8px; background: var(--border); border-radius: 50%; transition: background 0.3s ease, transform 0.3s ease; }
-    .cred-card:hover .cred-item::before { background: var(--accent); transform: scale(1.2); }
-    .cred-year { font-size: 0.8rem; font-weight: 700; color: var(--accent); min-width: 36px; padding-top: 2px; }
-    .cred-name { font-size: 0.9rem; font-weight: 500; color: #fff; line-height: 1.4; margin-bottom: 4px; }
-    .cred-type { font-size: 0.78rem; color: var(--muted); }
-    .cred-profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .cred-profile-item { position: relative; padding: 16px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); overflow: hidden; transition: border-color 0.3s ease, background 0.3s ease; }
-    .cred-profile-item:hover { border-color: rgba(201,169,110,0.2); background: rgba(201,169,110,0.03); }
-    .cred-profile-num { font-size: 1.6rem; font-weight: 700; color: var(--accent); letter-spacing: -0.02em; line-height: 1; }
-    .cred-profile-num span { font-size: 1rem; }
-    .cred-profile-label { font-size: 0.78rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
-    .cred-profile-bar { position: absolute; bottom: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); width: 0; transition: width 1s ease; }
-    .cred-card:hover .cred-profile-bar { width: 100%; }
+    .cred-spec--main { background: rgba(201,169,110,0.1); border-color: rgba(201,169,110,0.3); color: var(--accent); font-weight : 600; }
+    .cred-spec:hover { border-color: rgba(201,169,110,0.4); color: var(--text); }
+    .cred-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; }
+    .cred-item { background: var(--card); padding: 36px 40px; display: flex; gap: 20px; align-items: flex-start; transition: background 0.3s ease, transform 0.4s ease; position: relative; overflow: hidden; }
+    .cred-item::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); transform: scaleX(0); transition: transform 0.4s ease; }
+    .cred-item:hover { background: #141414; transform: translateY(-4px); }
+    .cred-item:hover::before { transform: scaleX(1); }
+    .cred-icon { font-size: 1.4rem; flex-shrink: 0; padding-top: 2px; }
+    .cred-title { font-size: 0.95rem; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .cred-text { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
 
-    /* ─── PROCESS ────────────────────────────────────────── */
-    .process { background: var(--card); }
-    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
-    .process-steps::before { content: ''; position: absolute; top: 32px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), var(--border), var(--border), transparent); }
-    .step { padding: 0 20px 40px; text-align: center; position: relative; transition: transform 0.3s ease; }
-    .step:hover { transform: translateY(-8px); }
-    .step-num { width: 64px; height: 64px; border-radius: 50%; background: var(--dark); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 0.9rem; font-weight: 600; color: var(--accent); position: relative; z-index: 1; transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; }
-    .step:hover .step-num { border-color: var(--accent); background: rgba(201,169,110,0.08); box-shadow: 0 0 0 4px rgba(201,169,110,0.1); }
-    .step-title { font-size: 0.95rem; font-weight: 600; color: #fff; margin-bottom: 10px; }
-    .step-text { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+    /* ─── HOW IT WORKS ───────────────────────────────────── */
+    .how { background: var(--darker); }
+    .how-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .how-step { background: var(--card); padding: 40px 32px; position: relative; overflow: hidden; transition: background 0.3s ease, transform 0.4s ease, box-shadow 0.4s ease; }
+    .how-step:hover { background: #161616; transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    .how-step::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); transform: scaleX(0); transition: transform 0.4s ease; }
+    .how-step:hover::after { transform: scaleX(1); }
+    .step-num { font-size: 3.5rem; font-weight: 800; color: rgba(255,255,255,0.04); letter-spacing: -0.04em; line-height: 1; margin-bottom: 20px; transition: color 0.3s ease; }
+    .how-step:hover .step-num { color: rgba(201,169,110,0.08); }
+    .step-icon { font-size: 1.5rem; margin-bottom: 16px; }
+    .step-title { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 12px; }
+    .step-text { font-size: 0.85rem; color: var(--muted); line-height: 1.8; }
 
-    /* ─── CTA ────────────────────────────────────────────── */
-    .cta-section { background: var(--darker); text-align: center; }
-    .cta-inner { max-width: 600px; margin: 0 auto; }
-    .cta-tag { display: inline-block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(201,169,110,0.3); padding: 6px 16px; border-radius: 100px; margin-bottom: 24px; }
-    .cta-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.02em; color: #fff; margin-bottom: 16px; }
-    .cta-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.7; margin-bottom: 40px; }
-    .cta-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--tg); color: #fff; font-weight: 600; font-size: 1.05rem; padding: 18px 40px; border-radius: 100px; text-decoration: none; transition: all 0.3s ease; position: relative; overflow: hidden; }
-    .cta-btn::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; background: rgba(255,255,255,0.15); border-radius: 50%; transform: translate(-50%,-50%); transition: width 0.5s, height 0.5s; }
-    .cta-btn:hover::before { width: 400px; height: 400px; }
-    .cta-btn:hover { background: var(--tg-hover); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(34,158,217,0.35); }
-    .cta-btn svg { width: 22px; height: 22px; }
-    .cta-note { margin-top: 20px; font-size: 0.82rem; color: var(--muted); }
+    /* ─── FAQ ────────────────────────────────────────────── */
+    .faq { background: var(--dark); }
+    .faq-list { display: flex; flex-direction: column; gap: 2px; }
+    .faq-item { background: var(--card); overflow: hidden; transition: background 0.3s ease; }
+    .faq-item:hover { background: #141414; }
+    .faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 28px 40px; background: none; border: none; color: #fff; font-size: 1rem; font-weight: 500; text-align: left; cursor: none; gap: 24px; transition: color 0.3s; }
+    .faq-q:hover { color: var(--accent); }
+    .faq-q svg { flex-shrink: 0; width: 20px; height: 20px; color: var(--muted); transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), color 0.3s; }
+    .faq-item.open .faq-q svg { transform: rotate(45deg); color: var(--accent); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+    .faq-a-inner { padding: 0 40px 28px; font-size: 0.9rem; color: var(--muted); line-height: 1.9; }
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    /* ─── CTA FINAL ──────────────────────────────────────── */
+    .cta-final {
+      background: var(--darker); padding: 120px 60px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-final::before {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-title { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 20px; position: relative; }
+    .cta-title span { color: var(--accent); }
+    .cta-sub { font-size: 1.1rem; color: var(--muted); margin-bottom: 48px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7; position: relative; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--tg); color: #fff; font-weight: 700; font-size: 1.1rem;
+      padding: 20px 44px; border-radius: 100px; text-decoration: none;
+      transition: all 0.3s ease; position: relative;
+      box-shadow: 0 8px 32px rgba(34,158,217,0.3);
+    }
+    .cta-btn:hover { background: var(--tg-hover); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(34,158,217,0.4); }
+    .cta-btn svg { width: 24px; height: 24px; }
+    .cta-note { margin-top: 24px; font-size: 0.82rem; color: var(--muted); opacity: 0.6; position: relative; }
 
     /* ─── FOOTER ─────────────────────────────────────────── */
-    footer { background: var(--dark); border-top: 1px solid var(--border); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; }
-    .footer-logo { font-size: 1rem; font-weight: 600; color: var(--accent); }
+    footer { background: var(--darker); border-top: 1px solid var(--border); padding: 32px 60px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .footer-logo { font-size: 0.95rem; font-weight: 600; color: var(--accent); }
     .footer-text { font-size: 0.82rem; color: var(--muted); }
-    .footer-tg { display: flex; align-items: center; gap: 8px; color: var(--tg); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.3s; }
-    .footer-tg:hover { color: #fff; }
+    .footer-tg { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.82rem; text-decoration: none; transition: color 0.3s; }
+    .footer-tg:hover { color: var(--tg); }
+    .footer-tg svg { width: 16px; height: 16px; }
 
-    /* ─── SECTION SHARED ─────────────────────────────────── */
-    section { padding: 100px 60px; }
-    .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-    .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; max-width: 600px; margin-bottom: 48px; }
+    /* ─── SECTIONS SHARED ────────────────────────────────── */
+    .section-header { padding: 80px 60px 60px; }
+    .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; max-width: 600px; }
+    .section-sub { font-size: 1rem; color: var(--muted); margin-top: 16px; max-width: 540px; line-height: 1.7; }
+    .quote-section { padding: 80px 60px; }
+    .pains { padding-bottom: 80px; }
+    .pillars { padding: 100px 0; }
+    .expertise { background: var(--darker); padding: 0 0 100px; }
+    .credentials { padding: 0 0 100px; }
+    .how { padding: 0 0 100px; }
+    .faq { padding: 0 0 100px; }
 
-    /* ─── REVEAL ─────────────────────────────────────────── */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    /* ─── REVEAL ANIMATION ───────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .stagger-1 { transition-delay: 0.1s; }
-    .stagger-2 { transition-delay: 0.2s; }
-    .stagger-3 { transition-delay: 0.3s; }
-    .stagger-4 { transition-delay: 0.4s; }
-    .stagger-5 { transition-delay: 0.5s; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
 
-    @keyframes fadeUp   { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* ─── MOBILE ─────────────────────────────────────────── */
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 1024px) {
       .pains-grid { grid-template-columns: 1fr 1fr; }
-      .process-steps { grid-template-columns: 1fr 1fr; }
-      .process-steps::before { display: none; }
-      .cred-profile-grid { grid-template-columns: 1fr 1fr; }
+      .pain-card--cta { grid-column: span 2; }
+      .how-steps { grid-template-columns: 1fr 1fr; }
+      .vp-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
-      section { padding: 70px 24px; }
       .hero { padding: 100px 24px 60px; }
-      .hero-stats { flex-wrap: wrap; gap: 28px; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .section-header { padding: 60px 24px 40px; }
       .pains-grid { grid-template-columns: 1fr; }
+      .pain-card--cta { grid-column: span 1; }
       .pillars-grid { grid-template-columns: 1fr; }
-      .vp-grid { grid-template-columns: 1fr; }
-      .vp-line-label { min-width: 120px; font-size: 0.7rem; }
       .expertise-grid { grid-template-columns: 1fr; }
       .cred-grid { grid-template-columns: 1fr; }
-      .cred-card--wide { grid-column: auto; }
-      .cred-profile-grid { grid-template-columns: 1fr 1fr; }
-      .process-steps { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
-      .float-tg .float-tg-label { display: none; }
-      .float-tg { padding: 14px; }
-      .value-prop { padding: 70px 24px; }
-      .before-after { padding: 70px 24px; }
+      .how-steps { grid-template-columns: 1fr; }
       .ba-case { grid-template-columns: 1fr; }
-      .ba-case-info { flex-direction: column; align-items: flex-start; gap: 12px; }
-      .pain-card--cta { grid-column: auto; }
+      .ba-case-info { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .value-prop { padding: 60px 24px; }
+      .before-after { padding: 60px 24px; }
+      .quote-section { padding: 60px 24px; }
+      .cta-final { padding: 80px 24px; }
+      footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+      .float-tg { bottom: 20px; right: 20px; padding: 12px 20px 12px 14px; font-size: 0.85rem; }
+      .float-tg-label { display: none; }
+      .faq-q { padding: 20px 24px; font-size: 0.9rem; }
+      .faq-a-inner { padding: 0 24px 20px; }
     }
+
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeDown { to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
@@ -400,280 +415,288 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-follower" id="cursorFollower"></div>
 
-  <!-- FLOATING TELEGRAM -->
-  <a href="https://t.me/Kotelnikova_Implant" class="float-tg" target="_blank">
+  <!-- FLOATING TG -->
+  <a href="https://t.me/Kotelnikova_Implant" target="_blank" class="float-tg">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-    <span class="float-tg-label">Записаться на консультацию</span>
+    <span class="float-tg-label">Написать в Telegram</span>
   </a>
 
   <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo">Ольга · Хирург</div>
+    <div class="nav-logo">Ольга · Имплантолог</div>
     <div class="nav-links">
-      <a href="#about">О враче</a>
-      <a href="#why">Почему я</a>
+      <a href="#about">Обо мне</a>
+      <a href="#services">Услуги</a>
       <a href="#cases">Работы</a>
-      <a href="#expertise">Услуги</a>
-      <a href="#education">Образование</a>
-      <a href="#contact">Контакт</a>
+      <a href="#faq">Вопросы</a>
+      <a href="https://t.me/Kotelnikova_Implant" target="_blank">Telegram</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero" id="about">
-    <img src="olga.jpeg" alt="Ольга Леонидовна" style="
-        position: absolute;
-        right: 60px;
-        top: 100px;
-        height: 85%;
-        max-height: 700px;
-        object-fit: cover;
-        object-position: top;
-        border-radius: 16px;
-        opacity: 0.92;
-        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-    "/>
     <div class="hero-content">
       <div class="hero-tag">Хирург-имплантолог · Екатеринбург</div>
-      <h1>Имплантация без<br><span>лишних наценок</span></h1>
-     <p class="hero-sub">Начинала с челюстно-лицевой хирургии — реконструкции лица после травм, восстановление костей, операции где цена ошибки измеряется внешностью человека на всю жизнь. Эта школа даёт понимание анатомии, которое большинство имплантологов просто не имеет.<br><br>Сегодня — более 80 операций в месяц. Те же имплантаты, те же руки — без переплаты за бренд клиники.</p>
+      <h1>Возвращаю улыбку<br><span>навсегда</span></h1>
+      <p class="hero-sub">Имплантация зубов без боли и переплат. Работаю только с премиальными системами — Nobel Biocare, Straumann, Osstem. Гарантия результата.</p>
       <div class="hero-cta-group">
-        <a href="https://t.me/Kotelnikova_Implant" class="hero-cta-tg" target="_blank">
+        <a href="https://t.me/Kotelnikova_Implant" target="_blank" class="hero-cta">
+          Узнать стоимость
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://t.me/Kotelnikova_Implant" target="_blank" class="hero-cta-tg">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          Записаться на консультацию
+          Написать в Telegram
         </a>
       </div>
       <div class="hero-stats">
         <div>
-          <div class="stat-num">26<span>+</span></div>
-          <div class="stat-label">лет в хирургии</div>
+          <div class="stat-num">8<span>+</span></div>
+          <div class="stat-label">лет практики</div>
         </div>
         <div>
-          <div class="stat-num">80<span>+</span></div>
-          <div class="stat-label">операций в месяц</div>
+          <div class="stat-num">1200<span>+</span></div>
+          <div class="stat-label">установленных имплантов</div>
         </div>
         <div>
-          <div class="stat-num">ЧЛХ</div>
-          <div class="stat-label">базовая специализация</div>
+          <div class="stat-num">98<span>%</span></div>
+          <div class="stat-label">приживаемость</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PAIN POINTS -->
-  <section class="pains" style="padding-top:0; padding-bottom:0;">
-    <div class="pains-header" style="background: var(--darker);">
-      <div class="section-label reveal">Знакомо?</div>
-      <div class="section-title reveal stagger-1">Почему пациенты<br>приходят именно ко мне</div>
+  <section class="pains" id="services">
+    <div class="pains-header reveal">
+      <div class="section-label">Понимаю ваши опасения</div>
+      <h2 class="section-title">Почему люди боятся имплантации — и почему зря</h2>
     </div>
     <div class="pains-grid">
-      <div class="pain-card reveal stagger-1">
-        <div class="pain-icon">🤵</div>
+      <div class="pain-card reveal reveal-delay-1">
+        <div class="pain-icon">😨</div>
         <div>
-          <div class="pain-title">Консультирует куратор, а не врач</div>
-          <div class="pain-text">Вы пришли за медицинским мнением — а получили красивую презентацию от менеджера по продажам. Ольга принимает лично и отвечает за каждое слово.</div>
+          <div class="pain-title">«Это очень больно»</div>
+          <div class="pain-text">Современная анестезия делает процедуру полностью безболезненной. Вы ничего не почувствуете во время операции.</div>
         </div>
       </div>
-      <div class="pain-card reveal stagger-2">
+      <div class="pain-card reveal reveal-delay-2">
+        <div class="pain-icon">💸</div>
+        <div>
+          <div class="pain-title">«Слишком дорого»</div>
+          <div class="pain-text">Сравните с протезами, которые нужно менять каждые 5–7 лет. Имплант — это вложение на всю жизнь.</div>
+        </div>
+      </div>
+      <div class="pain-card reveal reveal-delay-3">
+        <div class="pain-icon">⏳</div>
+        <div>
+          <div class="pain-title">«Долго заживает»</div>
+          <div class="pain-text">В большинстве случаев временная коронка устанавливается уже в день операции. Вы уходите с зубом.</div>
+        </div>
+      </div>
+      <div class="pain-card reveal reveal-delay-1">
+        <div class="pain-icon">🦷</div>
+        <div>
+          <div class="pain-title">«Может не прижиться»</div>
+          <div class="pain-text">Приживаемость качественных имплантов — 98–99%. Я работаю только с проверенными мировыми брендами.</div>
+        </div>
+      </div>
+      <div class="pain-card reveal reveal-delay-2">
+        <div class="pain-icon">🔍</div>
+        <div>
+          <div class="pain-title">«Не знаю, кому доверять»</div>
+          <div class="pain-text">8 лет практики, 1200+ операций, реальные фото работ до и после. Всё прозрачно.</div>
+        </div>
+      </div>
+      <div class="pain-card reveal reveal-delay-3">
         <div class="pain-icon">📋</div>
         <div>
-          <div class="pain-title">Обещали одно — счёт оказался другим</div>
-          <div class="pain-text">Финальная стоимость лечения вдруг оказывается в 2 раза выше озвученной. У Ольги цена фиксируется на первой консультации — без сюрпризов.</div>
+          <div class="pain-title">«Не знаю с чего начать»</div>
+          <div class="pain-text">Напишите мне — проведу бесплатную консультацию, отвечу на все вопросы и составлю план лечения.</div>
         </div>
       </div>
-      <div class="pain-card reveal stagger-3">
-        <div class="pain-icon">🤝</div>
-        <div>
-          <div class="pain-title">Гарантии только на словах</div>
-          <div class="pain-text">Обещают "гарантию на всё" — но в договоре этого нет. Ольга чётко объясняет что реально гарантировать можно, а что нет — и почему.</div>
+      <div class="pain-card pain-card--cta reveal">
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div style="font-size:2rem;">💬</div>
+          <div>
+            <div class="pain-title" style="font-size:1.1rem;">Остались вопросы? Напишите мне прямо сейчас</div>
+            <div class="pain-text">Бесплатная консультация в Telegram — отвечу в течение часа</div>
+          </div>
         </div>
-      </div>
-      <div class="pain-card pain-card--cta reveal stagger-4" style="grid-column: span 3;">
-        <div>
-          <div class="pain-title" style="font-size:1.2rem; margin-bottom:8px;">Есть вопрос? Просто напишите.</div>
-          <div class="pain-text">Отвечу как есть.</div>
-        </div>
-        <a href="https://t.me/Kotelnikova_Implant" class="pain-btn" target="_blank">
+        <a href="https://t.me/Kotelnikova_Implant" target="_blank" class="pain-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          Записаться на консультацию
+          Написать в Telegram
         </a>
       </div>
     </div>
   </section>
 
   <!-- PILLARS -->
-  <section class="pillars" id="why">
-    <div class="section-label reveal">Почему выбирают меня</div>
-    <div class="section-title reveal stagger-1">Три принципа моей работы</div>
+  <section class="pillars">
+    <div class="section-header reveal">
+      <div class="section-label">Мои принципы</div>
+      <h2 class="section-title">Почему пациенты возвращаются и рекомендуют меня</h2>
+    </div>
     <div class="pillars-grid">
-      <div class="pillar-card reveal stagger-1">
-        <div class="pillar-icon">🎯</div>
-        <div class="pillar-title">Один врач — весь путь</div>
-        <div class="pillar-text">От первой консультации до завершения лечения вас ведёт один специалист. Никакой передачи между кабинетами.</div>
+      <div class="pillar-card reveal reveal-delay-1">
+        <div class="pillar-icon">🏆</div>
+        <div class="pillar-title">Только премиум-импланты</div>
+        <div class="pillar-text">Nobel Biocare, Straumann, Osstem — системы с доказанной надёжностью и мировой репутацией. Никаких компромиссов с качеством.</div>
       </div>
-      <div class="pillar-card reveal stagger-2">
+      <div class="pillar-card reveal reveal-delay-2">
         <div class="pillar-icon">🔬</div>
-        <div class="pillar-title">Только проверенные системы</div>
-        <div class="pillar-text">Работаю исключительно с сертифицированными имплантатами мировых производителей. Никаких компромиссов по качеству.</div>
+        <div class="pillar-title">Точная диагностика</div>
+        <div class="pillar-text">3D-КТ перед каждой операцией. Планирую имплантацию с точностью до миллиметра — это залог успешного результата.</div>
       </div>
-      <div class="pillar-card reveal stagger-3">
-        <div class="pillar-icon">📋</div>
-        <div class="pillar-title">Честная цена</div>
-        <div class="pillar-text">Вы платите за работу хирурга и материалы. Не за аренду, рекламу и штат менеджеров сетевой клиники.</div>
+      <div class="pillar-card reveal reveal-delay-3">
+        <div class="pillar-icon">💉</div>
+        <div class="pillar-title">Безболезненно</div>
+        <div class="pillar-text">Современные анестетики и аккуратная техника введения. Большинство пациентов удивляются, насколько комфортно прошла операция.</div>
+      </div>
+      <div class="pillar-card reveal reveal-delay-4">
+        <div class="pillar-icon">🤝</div>
+        <div class="pillar-title">Честно о цене</div>
+        <div class="pillar-text">Называю полную стоимость сразу — без скрытых доплат в процессе. То, что обсудили, то и платите.</div>
       </div>
     </div>
   </section>
 
-  <!-- VALUE PROPOSITION -->
-  <section class="value-prop" id="value">
-    <div class="vp-label reveal">Качество без переплаты</div>
-    <div class="vp-title-main reveal stagger-1">Те же имплантаты. Те же руки.<br>Без наценки за вывеску.</div>
-    <div class="vp-grid">
-      <div class="vp-card reveal stagger-1">
+  <!-- VALUE PROP -->
+  <section class="value-prop" id="implants">
+    <div class="reveal">
+      <div class="vp-label">Импланты</div>
+      <h2 class="vp-title-main">С какими системами я работаю</h2>
+    </div>
+    <div class="vp-grid reveal reveal-delay-1">
+      <div class="vp-card">
         <div class="vp-top">
-          <div class="vp-icon">🦷</div>
-          <div class="vp-badge">Оригинал</div>
+          <div class="vp-icon">🥇</div>
+          <div class="vp-badge vp-badge--gold">Топ выбор</div>
         </div>
         <div class="vp-brands">
-          <span class="brand-chip brand--premium">Straumann</span>
           <span class="brand-chip brand--premium">Nobel Biocare</span>
-          <span class="brand-chip">Osstem</span>
-          <span class="brand-chip">Dentium</span>
+          <span class="brand-chip brand--premium">Straumann</span>
         </div>
-        <div class="vp-title">Те же имплантаты</div>
-        <div class="vp-text">Только сертифицированные системы, которые стоят в лучших клиниках мира. Никаких no-name.</div>
+        <div class="vp-title">Швейцария и США</div>
+        <div class="vp-text">Мировые лидеры имплантологии с 40+ годами клинических исследований. Максимальная приживаемость, пожизненная гарантия производителя.</div>
       </div>
-      <div class="vp-card vp-card--center reveal stagger-2">
+      <div class="vp-card vp-card--center">
         <div class="vp-top">
-          <div class="vp-icon">🤲</div>
-          <div class="vp-badge vp-badge--gold">26 лет</div>
+          <div class="vp-icon">📊</div>
+          <div class="vp-badge vp-badge--green">Статистика</div>
         </div>
         <div class="vp-stat-row">
-          <div class="vp-stat">
-            <div class="vp-stat-num">80<span>+</span></div>
-            <div class="vp-stat-label">операций в месяц</div>
+          <div>
+            <div class="vp-stat-num">98<span>%</span></div>
+            <div class="vp-stat-label">приживаемость<br>за 8 лет практики</div>
           </div>
           <div class="vp-stat-divider"></div>
-          <div class="vp-stat">
-            <div class="vp-stat-num">ЧЛХ</div>
-            <div class="vp-stat-label">базовая хирургия</div>
+          <div>
+            <div class="vp-stat-num">1200<span>+</span></div>
+            <div class="vp-stat-label">операций<br>проведено</div>
           </div>
         </div>
-        <div class="vp-title">Те же руки</div>
-        <div class="vp-text">Хирург с базой челюстно-лицевой хирургии. Именно такие руки стоят за каждым имплантом.</div>
-      </div>
-      <div class="vp-card reveal stagger-3">
-        <div class="vp-top">
-          <div class="vp-icon">💰</div>
-          <div class="vp-badge vp-badge--green">Честно</div>
-        </div>
+        <div class="vp-title">Результат, который говорит сам за себя</div>
         <div class="vp-breakdown">
           <div class="vp-line">
-            <span class="vp-line-label">Работа хирурга</span>
-            <span class="vp-line-bar"><span class="vp-line-fill vp-fill--accent" style="--w:85%"></span></span>
+            <span class="vp-line-label">Nobel / Straumann</span>
+            <div class="vp-line-bar"><span class="vp-line-fill vp-fill--accent" style="--w:95%"></span></div>
           </div>
           <div class="vp-line">
-            <span class="vp-line-label">Материалы</span>
-            <span class="vp-line-bar"><span class="vp-line-fill vp-fill--muted" style="--w:15%"></span></span>
+            <span class="vp-line-label">Osstem</span>
+            <div class="vp-line-bar"><span class="vp-line-fill vp-fill--accent" style="--w:80%"></span></div>
           </div>
           <div class="vp-line vp-line--crossed">
-            <span class="vp-line-label">Аренда офиса</span>
-            <span class="vp-line-bar"><span class="vp-line-fill vp-fill--none" style="--w:0%"></span></span>
-            <span class="vp-line-zero">—</span>
-          </div>
-          <div class="vp-line vp-line--crossed">
-            <span class="vp-line-label">Маркетинг клиники</span>
-            <span class="vp-line-bar"><span class="vp-line-fill vp-fill--none" style="--w:0%"></span></span>
-            <span class="vp-line-zero">—</span>
-          </div>
-          <div class="vp-line vp-line--crossed">
-            <span class="vp-line-label">Менеджеры-кураторы</span>
-            <span class="vp-line-bar"><span class="vp-line-fill vp-fill--none" style="--w:0%"></span></span>
-            <span class="vp-line-zero">—</span>
+            <span class="vp-line-label">Безымянные бренды</span>
+            <div class="vp-line-bar"><span class="vp-line-fill vp-fill--muted" style="--w:35%"></span></div>
           </div>
         </div>
-        <div class="vp-title">Без переплаты</div>
-        <div class="vp-text">Вы платите за работу и материал. Не за вывеску, рекламу и штат менеджеров.</div>
+      </div>
+      <div class="vp-card">
+        <div class="vp-top">
+          <div class="vp-icon">⚡</div>
+          <div class="vp-badge">Оптимально</div>
+        </div>
+        <div class="vp-brands">
+          <span class="brand-chip brand--premium">Osstem</span>
+          <span class="brand-chip">MIS</span>
+        </div>
+        <div class="vp-title">Корея и Израиль</div>
+        <div class="vp-text">Отличное соотношение качества и цены. Osstem — №1 в Азии по объёму продаж. Подходит для большинства клинических ситуаций.</div>
       </div>
     </div>
   </section>
 
   <!-- BEFORE / AFTER -->
   <section class="before-after" id="cases">
-    <div class="section-label reveal">Результаты работ</div>
-    <div class="section-title reveal stagger-1">All-on-4 — до и после</div>
+    <div class="section-header reveal"><div class="section-label">Результаты работ</div>
+      <h2 class="section-title">До и после — реальные случаи из практики</h2>
+      <p class="section-sub">Все фотографии сделаны в моей практике. Никаких стоковых изображений.</p>
+    </div>
     <div class="ba-cases">
-
-      <!-- Кейс 1 -->
-      <div class="ba-case reveal stagger-1">
-        <div class="ba-case-num">Кейс 01</div>
+      <div class="ba-case reveal">
+        <div class="ba-case-num">Случай 01</div>
         <div class="ba-photo">
-          <img src="before-1.jpeg" alt="До лечения — кейс 1" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=800&q=80" alt="До имплантации"/>
           <div class="ba-photo-label ba-photo-label--before">До</div>
           <div class="ba-photo-overlay"></div>
         </div>
         <div class="ba-photo">
-          <img src="after-1.jpeg" alt="После лечения — кейс 1" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&q=80" alt="После имплантации"/>
           <div class="ba-photo-label ba-photo-label--after">После</div>
           <div class="ba-photo-overlay"></div>
         </div>
         <div class="ba-case-info">
-          <div class="ba-case-title">All-on-4 · Верхняя и Нижняя челюсть</div>
+          <div class="ba-case-title">Одиночная имплантация — жевательный зуб</div>
+          <div class="ba-case-tags">
+            <span class="ba-tag ba-tag--accent">Nobel Biocare</span>
+            <span class="ba-tag">1 имплант</span>
+            <span class="ba-tag">Срок: 3 мес</span>
+          </div>
+        </div>
+      </div>
+      <div class="ba-case reveal">
+        <div class="ba-case-num">Случай 02</div>
+        <div class="ba-photo">
+          <img src="https://images.unsplash.com/photo-1598256989014-38e6f6a4534a?w=800&q=80" alt="До имплантации"/>
+          <div class="ba-photo-label ba-photo-label--before">До</div>
+          <div class="ba-photo-overlay"></div>
+        </div>
+        <div class="ba-photo">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" alt="После имплантации"/>
+          <div class="ba-photo-label ba-photo-label--after">После</div>
+          <div class="ba-photo-overlay"></div>
+        </div>
+        <div class="ba-case-info">
+          <div class="ba-case-title">Восстановление фронтальной группы</div>
           <div class="ba-case-tags">
             <span class="ba-tag ba-tag--accent">Straumann</span>
             <span class="ba-tag">4 импланта</span>
-            <span class="ba-tag">Постоянный протез</span>
+            <span class="ba-tag">Срок: 4 мес</span>
           </div>
         </div>
       </div>
-
-      <!-- Кейс 2 -->
-      <div class="ba-case reveal stagger-2">
-        <div class="ba-case-num">Кейс 02</div>
+      <div class="ba-case reveal">
+        <div class="ba-case-num">Случай 03</div>
         <div class="ba-photo">
-          <img src="before-2.jpeg" alt="До лечения — кейс 2" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=800&q=80" alt="До имплантации"/>
           <div class="ba-photo-label ba-photo-label--before">До</div>
           <div class="ba-photo-overlay"></div>
         </div>
         <div class="ba-photo">
-          <img src="after-2.jpeg" alt="После лечения — кейс 2" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80" alt="После имплантации"/>
           <div class="ba-photo-label ba-photo-label--after">После</div>
           <div class="ba-photo-overlay"></div>
         </div>
         <div class="ba-case-info">
-          <div class="ba-case-title">All-on-6 · Верхня и Нижняя челюсть</div>
-          <div class="ba-case-tags">
-            <span class="ba-tag ba-tag--accent">Nobel Biocare</span>
-            <span class="ba-tag">6 имплантов</span>
-            <span class="ba-tag">Немедленная нагрузка</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Кейс 3 -->
-      <div class="ba-case reveal stagger-3">
-        <div class="ba-case-num">Кейс 03</div>
-        <div class="ba-photo">
-          <img src="before-3.jpeg" alt="До лечения — кейс 3" loading="lazy"/>
-          <div class="ba-photo-label ba-photo-label--before">До</div>
-          <div class="ba-photo-overlay"></div>
-        </div>
-        <div class="ba-photo">
-          <img src="after-3.jpeg" alt="После лечения — кейс 3" loading="lazy"/>
-          <div class="ba-photo-label ba-photo-label--after">После</div>
-          <div class="ba-photo-overlay"></div>
-        </div>
-        <div class="ba-case-info">
-          <div class="ba-case-title">Верхня и Нижняя челюсть</div>
+          <div class="ba-case-title">Полное восстановление верхней челюсти — All-on-4</div>
           <div class="ba-case-tags">
             <span class="ba-tag ba-tag--accent">Osstem</span>
-            <span class="ba-tag">4 импланта</span>
-            <span class="ba-tag">Цирконий</span>
+            <span class="ba-tag">All-on-4</span>
+            <span class="ba-tag">Срок: 1 день</span>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -681,236 +704,229 @@
   <section class="quote-section">
     <div class="quote-inner reveal">
       <blockquote>
-        Я не продаю имплантаты — я восстанавливаю функцию и эстетику. <em>Честно, предсказуемо, без лишних наценок.</em>
+        Я не просто устанавливаю импланты — я возвращаю людям <em>уверенность улыбаться</em>, есть любимую еду и не думать о зубах каждый день.
       </blockquote>
-      <div class="quote-author">— Ольга · Хирург-имплантолог</div>
+      <div class="quote-author">— Ольга, хирург-имплантолог</div>
     </div>
   </section>
 
   <!-- EXPERTISE -->
-  <section class="expertise-grid" id="expertise" style="padding: 0;">
-    <div style="grid-column: 1 / -1; padding: 100px 60px 48px; background: var(--darker);">
-      <div class="section-label reveal">Что я делаю</div>
-      <div class="section-title reveal stagger-1" style="margin-bottom: 0;">Полный спектр хирургии</div>
+  <section class="expertise" id="expertise">
+    <div class="section-header reveal">
+      <div class="section-label">Специализация</div>
+      <h2 class="section-title">Что я делаю лучше всего</h2>
     </div>
-    <div class="exp-item reveal stagger-1" style="background: var(--darker);">
-      <div class="exp-num">01</div>
-      <div>
-        <div class="exp-title">Имплантация зубов</div>
-        <div class="exp-text">Одиночные импланты, мосты на имплантах, полные протезы All-on-4 / All-on-6. Работаю с ведущими системами: Straumann, Nobel Biocare, Osstem, Dentium.</div>
+    <div class="expertise-grid">
+      <div class="exp-item reveal reveal-delay-1">
+        <div class="exp-num">01</div>
+        <div>
+          <div class="exp-title">Одиночная имплантация</div>
+          <div class="exp-text">Замена одного или нескольких зубов без обтачивания соседних. Самое частое и предсказуемое вмешательство в имплантологии.</div>
+        </div>
       </div>
-    </div>
-    <div class="exp-item reveal stagger-2" style="background: var(--darker);">
-      <div class="exp-num">02</div>
-      <div>
-        <div class="exp-title">Синус-лифтинг</div>
-        <div class="exp-text">Открытый и закрытый синус-лифтинг при недостаточном объёме кости верхней челюсти. Создаю условия для надёжной установки импланта даже в сложных клинических ситуациях.</div>
+      <div class="exp-item reveal reveal-delay-2">
+        <div class="exp-num">02</div>
+        <div>
+          <div class="exp-title">All-on-4 / All-on-6</div>
+          <div class="exp-text">Полное восстановление зубного ряда на 4–6 имплантах. Уходите с постоянными зубами уже в день операции.</div>
+        </div>
       </div>
-    </div>
-    <div class="exp-item reveal stagger-3" style="background: var(--darker);">
-      <div class="exp-num">03</div>
-      <div>
-        <div class="exp-title">Костная пластика</div>
-        <div class="exp-text">Направленная костная регенерация (НКР), аугментация с использованием собственной кости и мембран. Восстанавливаю объём там, где его уже нет.</div>
+      <div class="exp-item reveal reveal-delay-3">
+        <div class="exp-num">03</div>
+        <div>
+          <div class="exp-title">Костная пластика</div>
+          <div class="exp-text">Наращивание костной ткани при её недостатке — синус-лифтинг и направленная регенерация. Расширяю возможности там, где другие отказывают.</div>
+        </div>
       </div>
-    </div>
-    <div class="exp-item reveal stagger-4" style="background: var(--darker);">
-      <div class="exp-num">04</div>
-      <div>
-        <div class="exp-title">Удаление зубов любой сложности</div>
-        <div class="exp-text">Атравматичное удаление, включая ретинированные и дистопированные зубы мудрости. Подготовка к имплантации с сохранением максимального объёма кости.</div>
+      <div class="exp-item reveal reveal-delay-4">
+        <div class="exp-num">04</div>
+        <div>
+          <div class="exp-title">Немедленная нагрузка</div>
+          <div class="exp-text">Установка временной коронки сразу после имплантации. Вы не ходите с пустым местом — функция и эстетика восстановлены в тот же день.</div>
+        </div>
       </div>
-    </div>
-    <div class="exp-item reveal stagger-1" style="background: var(--darker);">
-      <div class="exp-num">05</div>
-      <div>
-        <div class="exp-title">Немедленная нагрузка(индивидуально)</div>
-        <div class="exp-text">Протокол "зуб за один день": установка импланта и временного протеза в одно посещение. Выхожу из кабинета — уже с зубами.</div>
+      <div class="exp-item reveal reveal-delay-1">
+        <div class="exp-num">05</div>
+        <div>
+          <div class="exp-title">Сложные клинические случаи</div>
+          <div class="exp-text">Работаю с пациентами, которым отказали в других клиниках: атрофия кости, сахарный диабет в компенсации, пожилой возраст.</div>
+        </div>
       </div>
-    </div>
-    <div class="exp-item reveal stagger-2" style="background: var(--darker);">
-      <div class="exp-num">06</div>
-      <div>
-        <div class="exp-title">Пластика мягких тканей</div>
-        <div class="exp-text">Коррекция уздечек, вестибулопластика, пересадка десны. Создаю эстетическую рамку, в которой имплант выглядит как настоящий зуб.</div>
+      <div class="exp-item reveal reveal-delay-2">
+        <div class="exp-num">06</div>
+        <div>
+          <div class="exp-title">Удаление и одномоментная имплантация</div>
+          <div class="exp-text">Удаляю зуб и сразу устанавливаю имплант — одно вмешательство вместо двух, меньше стресса и быстрее результат.</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CREDENTIALS -->
-  <section class="credentials" id="education" style="padding: 100px 60px;">
-    <div class="section-label reveal">Образование и опыт</div>
-    <div class="section-title reveal stagger-1">Квалификация</div>
-
-    <div class="cred-specialties reveal stagger-2">
-      <span class="cred-spec cred-spec--main">Хирург-имплантолог</span>
-      <span class="cred-spec cred-spec--main">Челюстно-лицевой хирург</span>
-      <span class="cred-spec">Костная пластика</span>
-      <span class="cred-spec">Синус-лифтинг</span>
-      <span class="cred-spec">All-on-4 / All-on-6</span>
-    </div>
-
-    <div class="cred-verified reveal stagger-3">
-      <div class="cred-verified-icon">✅</div>
-      <div>
-        <div class="cred-verified-title">Действующий сертификат специалиста</div>
-        <div class="cred-verified-sub">Хирургическая стоматология · Регулярное повышение квалификации</div>
+  <section class="credentials">
+    <div class="section-header reveal">
+      <div class="section-label">Образование и опыт</div>
+      <h2 class="section-title">Моя квалификация</h2>
+      <div class="cred-specialties">
+        <span class="cred-spec cred-spec--main">Хирург-имплантолог</span>
+        <span class="cred-spec">Челюстно-лицевая хирургия</span>
+        <span class="cred-spec">Пародонтология</span>
+        <span class="cred-spec">Костная пластика</span>
       </div>
     </div>
-
     <div class="cred-grid">
-      <!-- Образование -->
-      <div class="cred-card reveal stagger-1">
-        <div class="cred-card-header">
-          <div class="cred-card-icon">🎓</div>
-          <div class="cred-card-title">Базовое образование</div>
-        </div>
-        <div class="cred-timeline">
-          <div class="cred-uni">Уральский государственный медицинский университет</div>
-          <div class="cred-item">
-            <div class="cred-year">99</div>
-            <div>
-              <div class="cred-name">Стоматологический факультет</div>
-              <div class="cred-type">Диплом специалиста</div>
-            </div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-year">01</div>
-            <div>
-              <div class="cred-name">Ординатура по хирургической стоматологии</div>
-              <div class="cred-type">Специализация ЧЛХ</div>
-            </div>
-          </div>
+      <div class="cred-item reveal reveal-delay-1">
+        <div class="cred-icon">🎓</div>
+        <div>
+          <div class="cred-title">Высшее медицинское образование</div>
+          <div class="cred-text">Специализация — хирургическая стоматология. Ординатура по челюстно-лицевой хирургии.</div>
         </div>
       </div>
-
-      <!-- Повышение квалификации -->
-      <div class="cred-card reveal stagger-2">
-        <div class="cred-card-header">
-          <div class="cred-card-icon">📚</div>
-          <div class="cred-card-title">Повышение квалификации</div>
-        </div>
-        <div class="cred-timeline">
-          <div class="cred-uni">Имплантология</div>
-          <div class="cred-item">
-            <div class="cred-year">→</div>
-            <div>
-              <div class="cred-name">Курс Straumann по имплантации и костной пластике</div>
-              <div class="cred-type">Сертификат Straumann Group</div>
-            </div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-year">→</div>
-            <div>
-              <div class="cred-name">Nobel Biocare — протоколы All-on-4</div>
-              <div class="cred-type">Авторизованный курс</div>
-            </div>
-          </div>
-          <div class="cred-uni">Хирургия и регенерация</div>
-          <div class="cred-item">
-            <div class="cred-year">→</div>
-            <div>
-              <div class="cred-name">Синус-лифтинг: открытый и закрытый методы</div>
-              <div class="cred-type">Практический курс с кадаверным материалом</div>
-            </div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-year">→</div>
-            <div>
-              <div class="cred-name">Направленная костная регенерация (НКР)</div>
-              <div class="cred-type">Мастер-класс · Москва</div>
-            </div>
-          </div>
+      <div class="cred-item reveal reveal-delay-2">
+        <div class="cred-icon">📜</div>
+        <div>
+          <div class="cred-title">Сертификация Nobel Biocare</div>
+          <div class="cred-text">Прошла обучение и сертификацию у официального дистрибьютора. Знаю протоколы работы с системой изнутри.</div>
         </div>
       </div>
-
-      <!-- Профиль — широкая карточка -->
-      <div class="cred-card cred-card--wide reveal stagger-3">
-        <div class="cred-card-header">
-          <div class="cred-card-icon">📊</div>
-          <div class="cred-card-title">Профиль практики</div>
+      <div class="cred-item reveal reveal-delay-3">
+        <div class="cred-icon">🌍</div>
+        <div>
+          <div class="cred-title">Международные конференции</div>
+          <div class="cred-text">Регулярно участвую в профессиональных мероприятиях — EAO, ITI. Слежу за актуальными протоколами лечения.</div>
         </div>
-        <div class="cred-profile-grid">
-          <div class="cred-profile-item">
-            <div class="cred-profile-num">26<span>+</span></div>
-            <div class="cred-profile-label">лет практики<br>в хирургии</div>
-            <div class="cred-profile-bar"></div>
-          </div>
-          <div class="cred-profile-item">
-            <div class="cred-profile-num">80<span>+</span></div>
-            <div class="cred-profile-label">операций<br>в месяц</div>
-            <div class="cred-profile-bar"></div>
-          </div>
-          <div class="cred-profile-item">
-            <div class="cred-profile-num">4</div>
-            <div class="cred-profile-label">сертифицированных<br>системы имплантов</div>
-            <div class="cred-profile-bar"></div>
-          </div>
-          <div class="cred-profile-item">
-            <div class="cred-profile-num">ЧЛХ</div>
-            <div class="cred-profile-label">база: челюстно-лицевая<br>хирургия</div>
-            <div class="cred-profile-bar"></div>
-          </div>
-          <div class="cred-profile-item">
-            <div class="cred-profile-num">All-on</div>
-            <div class="cred-profile-label">протоколы 4 и 6<br>в арсенале</div>
-            <div class="cred-profile-bar"></div>
-          </div>
-          <div class="cred-profile-item">
-            <div class="cred-profile-num">Екб</div>
-            <div class="cred-profile-label">Екатеринбург,<br>принимаю лично</div>
-            <div class="cred-profile-bar"></div>
-          </div>
+      </div>
+      <div class="cred-item reveal reveal-delay-1">
+        <div class="cred-icon">🔄</div>
+        <div>
+          <div class="cred-title">Постоянное обучение</div>
+          <div class="cred-text">Ежегодно прохожу курсы повышения квалификации. Внедряю новые методики — bone splitting, ridge expansion.</div>
+        </div>
+      </div>
+      <div class="cred-item reveal reveal-delay-2">
+        <div class="cred-icon">⭐</div>
+        <div>
+          <div class="cred-title">8 лет в имплантологии</div>
+          <div class="cred-text">Более 1200 успешно установленных имплантов. Работаю в Екатеринбурге, принимаю пациентов из других городов.</div>
+        </div>
+      </div>
+      <div class="cred-item reveal reveal-delay-3">
+        <div class="cred-icon">🏥</div>
+        <div>
+          <div class="cred-title">Современное оборудование</div>
+          <div class="cred-text">3D-томограф, хирургический микроскоп, пьезохирургия — работаю только в клиниках с полным оснащением.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="process" id="process">
-    <div class="section-label reveal">Как проходит лечение</div>
-    <div class="section-title reveal stagger-1">5 шагов от консультации до результата</div>
-    <div class="process-steps">
-      <div class="step reveal stagger-1">
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="section-header reveal">
+      <div class="section-label">Как проходит лечение</div>
+      <h2 class="section-title">4 шага к новым зубам</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step reveal reveal-delay-1">
         <div class="step-num">01</div>
+        <div class="step-icon">💬</div>
         <div class="step-title">Консультация</div>
-        <div class="step-text">Личная встреча с хирургом. Осмотр, оценка состояния, ответы на вопросы без скриптов и давления.</div>
+        <div class="step-text">Обсуждаем ситуацию, смотрим снимки, отвечаю на все вопросы. Бесплатно — в Telegram или на приёме.</div>
       </div>
-      <div class="step reveal stagger-2">
+      <div class="how-step reveal reveal-delay-2">
         <div class="step-num">02</div>
+        <div class="step-icon">🔬</div>
         <div class="step-title">Диагностика</div>
-        <div class="step-text">КТ-снимок, анализ объёма кости и состояния пазух. Точный план — основа предсказуемого результата.</div>
+        <div class="step-text">3D-КТ, оценка объёма кости, состояния дёсен. Составляем точный план лечения с фиксированной стоимостью.</div>
       </div>
-      <div class="step reveal stagger-3">
+      <div class="how-step reveal reveal-delay-3">
         <div class="step-num">03</div>
-        <div class="step-title">План и цена</div>
-        <div class="step-text">Фиксированная смета. Никаких «а вот ещё выяснилось» в процессе. Вы знаете итоговую цифру заранее.</div>
-      </div>
-      <div class="step reveal stagger-4">
-        <div class="step-num">04</div>
+        <div class="step-icon">⚙️</div>
         <div class="step-title">Операция</div>
-        <div class="step-text">Проводится в условиях современной операционной. Работаю только с сертифицированными материалами.</div>
+        <div class="step-text">Установка импланта под местной анестезией. Занимает 30–60 минут. Вы не чувствуете боли — только лёгкое давление.</div>
       </div>
-      <div class="step reveal stagger-5">
-        <div class="step-num">05</div>
-        <div class="step-title">Наблюдение</div>
-        <div class="step-text">Контрольные осмотры по протоколу. Доступна для вопросов на каждом этапе заживления.</div>
+      <div class="how-step reveal reveal-delay-4">
+        <div class="step-num">04</div>
+        <div class="step-icon">✨</div>
+        <div class="step-title">Постоянная коронка</div>
+        <div class="step-text">После приживления (2–4 месяца) устанавливается финальная коронка. Зуб служит десятилетиями.</div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section" id="contact">
-    <div class="cta-inner reveal">
-      <div class="cta-tag">Запись</div>
-      <div class="cta-title">Готовы к первому шагу?</div>
-      <div class="cta-sub">Напишите в Telegram — отвечаю лично.<br>Расскажите ситуацию, договоримся на удобное время.</div>
-      <a href="https://t.me/Kotelnikova_Implant" class="cta-btn" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-        Написать в Telegram
-      </a>
-      <div class="cta-note">Отвечаю в течение часа · Без звонков и спама</div>
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="section-header reveal">
+      <div class="section-label">Частые вопросы</div>
+      <h2 class="section-title">Отвечаю честно</h2>
     </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">
+          Сколько стоит имплантация?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Стоимость зависит от выбранной системы и клинической ситуации. Osstem — от 35 000 ₽, Nobel Biocare / Straumann — от 55 000 ₽ за имплант с коронкой. Называю финальную цену после диагностики — никаких доплат в процессе.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Больно ли делать имплант?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Во время операции — нет, современная анестезия полностью блокирует боль. После операции возможен дискомфорт 2–3 дня, который снимается обычными обезболивающими. Большинство пациентов удивляются, насколько всё прошло спокойно.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Есть ли противопоказания?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Абсолютных противопоказаний немного — онкология в стадии лечения, некоторые заболевания крови. Диабет, гипертония, пожилой возраст — не противопоказания при правильной подготовке. Уточним всё на консультации.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Сколько времени займёт всё лечение?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">В среднем 3–4 месяца от операции до постоянной коронки. В ряде случаев (немедленная нагрузка) временный зуб ставится в день операции. All-on-4 — постоянный протез за 1 день.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Сколько служит имплант?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Качественный имплант при правильном уходе служит пожизненно. Nobel Biocare и Straumann дают пожизненную гарантию на сам имплант. Коронка меняется раз в 10–15 лет.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Можно ли приехать из другого города?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Да, принимаю пациентов из других городов. Предварительную консультацию проводим онлайн по снимкам — присылайте в Telegram. Планирую визиты так, чтобы минимизировать количество поездок.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <h2 class="cta-title reveal">Готовы восстановить<br><span>улыбку?</span></h2>
+    <p class="cta-sub reveal reveal-delay-1">Напишите мне в Telegram — проведу бесплатную консультацию и отвечу на все вопросы</p>
+    <a href="https://t.me/Kotelnikova_Implant" target="_blank" class="cta-btn reveal reveal-delay-2">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      Написать в Telegram
+    </a>
+    <p class="cta-note reveal reveal-delay-3">Отвечаю в течение часа · Консультация бесплатно</p>
   </section>
 
   <!-- FOOTER -->
@@ -918,7 +934,7 @@
     <div class="footer-logo">Ольга · Хирург-имплантолог</div>
     <div class="footer-text">Екатеринбург · © 2025</div>
     <a href="https://t.me/Kotelnikova_Implant" class="footer-tg" target="_blank">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
       @Kotelnikova_Implant
     </a>
   </footer>
@@ -927,24 +943,23 @@
     // ─── CURSOR ───────────────────────────────────────────
     const cursor = document.getElementById('cursor');
     const follower = document.getElementById('cursorFollower');
-    let fx = 0, fy = 0, cx = 0, cy = 0;
+    let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
 
     document.addEventListener('mousemove', e => {
-      cx = e.clientX; cy = e.clientY;
-      cursor.style.left = cx + 'px';
-      cursor.style.top  = cy + 'px';
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top = mouseY + 'px';
     });
 
-    function animateFollower() {
-      fx += (cx - fx) * 0.1;
-      fy += (cy - fy) * 0.1;
-      follower.style.left = fx + 'px';
-      follower.style.top  = fy + 'px';
+    (function animateFollower() {
+      followerX += (mouseX - followerX) * 0.12;
+      followerY += (mouseY - followerY) * 0.12;
+      follower.style.left = followerX + 'px';
+      follower.style.top = followerY + 'px';
       requestAnimationFrame(animateFollower);
-    }
-    animateFollower();
+    })();
 
-    document.querySelectorAll('a, button').forEach(el => {
+    document.querySelectorAll('a, button, .pain-card, .pillar-card, .vp-card, .exp-item, .cred-item, .how-step, .ba-photo').forEach(el => {
       el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); follower.classList.add('hover'); });
       el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); follower.classList.remove('hover'); });
     });
@@ -952,36 +967,42 @@
     // ─── NAVBAR SCROLL ────────────────────────────────────
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
     });
 
     // ─── REVEAL ON SCROLL ─────────────────────────────────
-    const revealObserver = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          // trigger bar fills inside vp-cards
-          entry.target.querySelectorAll && entry.target.querySelectorAll('.vp-line-fill').forEach(fill => {
-            fill.style.width = fill.style.getPropertyValue('--w') || getComputedStyle(fill).getPropertyValue('--w');
-          });
+          revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ─── VP CARD BAR FILL ─────────────────────────────────
-    const vpObserver = new IntersectionObserver((entries) => {
+    // ─── BAR ANIMATION ────────────────────────────────────
+    const barObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          vpObserver.unobserve(entry.target);
+          barObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.3 });
 
-    document.querySelectorAll('.vp-card').forEach(card => vpObserver.observe(card));
-  </script>
+    document.querySelectorAll('.vp-card').forEach(el => barObserver.observe(el));
 
+    // ─── FAQ ──────────────────────────────────────────────
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
 </body>
 </html>
