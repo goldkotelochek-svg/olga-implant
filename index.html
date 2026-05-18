@@ -447,6 +447,18 @@
 @media (max-width: 768px) {
   .form-row { grid-template-columns: 1fr; }
 }
+.nav-cta {
+  background: var(--tg) !important;
+  color: #fff !important;
+  padding: 8px 20px !important;
+  border-radius: 100px !important;
+  font-weight: 600 !important;
+  transition: background 0.3s ease, transform 0.3s ease !important;
+}
+.nav-cta:hover {
+  background: var(--tg-hover) !important;
+  transform: translateY(-2px) !important;
+}
   </style>
 </head>
 <body>
@@ -462,16 +474,17 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo">Ольга · Хирург</div>
-    <div class="nav-links">
-      <a href="#about">О враче</a>
-      <a href="#why">Почему я</a>
-      <a href="#cases">Работы</a>
-      <a href="#expertise">Услуги</a>
-      <a href="#education">Образование</a>
-      <a href="#contact">Контакт</a>
-    </div>
-  </nav>
+  <div class="nav-logo">Ольга · Хирург</div>
+  <div class="nav-links">
+    <a href="#about">О враче</a>
+    <a href="#why">Почему я</a>
+    <a href="#cases">Работы</a>
+    <a href="#expertise">Услуги</a>
+    <a href="#education">Образование</a>
+    <a href="#contact">Контакт</a>
+    <a href="#contact" class="nav-cta">Записаться</a>
+  </div>
+</nav>
 
   <!-- HERO -->
   <section class="hero" id="about">
@@ -1089,14 +1102,22 @@
 
     document.querySelectorAll('.vp-card').forEach(card => vpObserver.observe(card));
     // ─── FORM ─────────────────────────────────────────────
+const BOT_TOKEN = '8785538979:AAEeLBj4bAzmdcGBCwhDX9PDBp2mcG644Jo';
+const CHAT_ID   = '6449898597';
+
 const form = document.getElementById('leadForm');
 const popupOverlay = document.getElementById('popupOverlay');
 const popupX = document.getElementById('popupX');
 
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', async function(e) {
   e.preventDefault();
-  const fname  = document.getElementById('fname').value.trim();
-  const fphone = document.getElementById('fphone').value.trim();
+
+  const fname    = document.getElementById('fname').value.trim();
+  const fphone   = document.getElementById('fphone').value.trim();
+  const fservice = document.getElementById('fservice').value;
+  const fcomment = document.getElementById('fcomment').value.trim();
+
+  // Валидация
   if (!fname || !fphone) {
     const bad = !fname ? document.getElementById('fname') : document.getElementById('fphone');
     bad.style.borderColor = 'rgba(255,80,80,0.6)';
@@ -1104,9 +1125,28 @@ form.addEventListener('submit', function(e) {
     setTimeout(() => { bad.style.borderColor = ''; }, 2000);
     return;
   }
+
+  // Формируем сообщение
+  const text = `🦷 Новая заявка с сайта\n\n👤 Имя: ${fname}\n📞 Телефон: ${fphone}\n🔹 Услуга: ${fservice || 'не указана'}\n💬 Комментарий: ${fcomment || 'нет'}`;
+
+  try {
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: CHAT_ID, text })
+    });
+  } catch (err) {
+    console.error('Ошибка отправки:', err);
+  }
+
   popupOverlay.classList.add('show');
   form.reset();
 });
+
+function closePopup() { popupOverlay.classList.remove('show'); }
+popupX.addEventListener('click', closePopup);
+popupOverlay.addEventListener('click', e => { if (e.target === popupOverlay) closePopup(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
 
 function closePopup() { popupOverlay.classList.remove('show'); }
 popupX.addEventListener('click', closePopup);
