@@ -4,6 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ольга — Хирург-имплантолог</title>
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109235208',
+ 'ym');
+    ym(109235208, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109235208"
+ style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1008,18 +1022,6 @@
   </div>
 </section>
 
-<!-- POPUP -->
-<div class="popup-overlay" id="popupOverlay">
-  <div class="popup-box">
-    <button class="popup-x" id="popupX">✕</button>
-    <div class="popup-icon">✅</div>
-    <div class="popup-title">Заявка отправлена</div>
-    <div class="popup-text">Ольга свяжется с вами в течение часа.<br>Также можно написать напрямую в Telegram.</div>
-    <a href="https://t.me/Kotelnikova_Implant" class="popup-close" target="_blank">
-      Перейти в Telegram
-    </a>
-  </div>
-</div>
   <section class="cta-section" id="cta">
     <div class="cta-inner reveal">
       <div class="cta-tag">Запись</div>
@@ -1106,7 +1108,6 @@ const BOT_TOKEN = '8785538979:AAEeLBj4bAzmdcGBCwhDX9PDBp2mcG644Jo';
 const CHAT_ID   = '6449898597';
 
 const form = document.getElementById('leadForm');
-const popupOverlay = document.getElementById('popupOverlay');
 const popupX = document.getElementById('popupX');
 
 form.addEventListener('submit', async function(e) {
@@ -1139,8 +1140,8 @@ form.addEventListener('submit', async function(e) {
     console.error('Ошибка отправки:', err);
   }
 
-  popupOverlay.classList.add('show');
   form.reset();
+  window.location.href = '/thanks.html';
 });
 
 function closePopup() { popupOverlay.classList.remove('show'); }
